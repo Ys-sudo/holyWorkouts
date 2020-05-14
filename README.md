@@ -17,8 +17,12 @@ npm install
 
 npm run dev
 
-localhost:8080
+
 ```
+
+
+the preview is live at: **localhost:8080** in your browser.
+
 
 Either ways i am still working for my previous job until 20th may.
 I still got left some svg animations and code corrections to do until that
