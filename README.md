@@ -1,4 +1,4 @@
-# Workout App
+# holyWorkouts App
 The workout app test for holy.
 
 
