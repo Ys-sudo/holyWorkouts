@@ -7,10 +7,12 @@ react.js / node.js
 how to run:
 
 Shell:
-git clone
+git clone https://github.com/Ys-sudo/holyWorkouts.git
 
 cd holyWorkouts
+
 npm install
+
 npm run dev
 
 localhost:8080
