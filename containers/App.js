@@ -15,7 +15,8 @@ import { PropTypes } from 'react';
 //login to database - unsafe / move to secrets .env
 var Airtable = require('airtable');
 var base = new Airtable({apiKey: 'keyS3Lg8wS2WMVLBD'}).base('appCUVYjYyYPP2KdR');
-
+//acces modifier for dropping
+var y;
 //display top exercises
 function populateGrid() {
 let i = 0;
@@ -58,7 +59,40 @@ class App extends Component {
 
   // event listners
 
-	//search for workouts
+
+
+	onDrop = (e) => {
+		e.preventDefault();
+		console.log(arr);
+		arr.unshift(y);
+		e.target.style.backgroundColor = 'rgb(200,200,200)';
+		document.getElementById('panel').innerHTML = arr.join('');
+
+		console.log('drop'+'yes');
+	};
+
+
+	onDragOver = (e) => {
+
+		let p = e.target.outerHTML;
+		 y = p;
+		 e.preventDefault();
+
+		console.log('drag' + y);
+	};
+
+	onDragOverHover = (e) => {
+
+		 let p = e.target.style.backgroundColor = 'rgb(240,240,240)';
+		 e.preventDefault();
+
+		console.log('drag' + y);
+	};
+
+
+
+
+//search for workouts
 
 	_onChange = (value) => {
 
@@ -85,7 +119,7 @@ class App extends Component {
 										// Selecting the first 3 records in Grid view:
 										maxRecords: 5,
 										view: "Grid view",
-										//sort by uses
+										//sort by uses - TODO
 										//sort:[{field: "Uses", direction: "desc"}]
 								}).eachPage(function page(records, fetchNextPage) {
 										// This function (`page`) will get called for each page of records.
@@ -159,7 +193,7 @@ class App extends Component {
 												var text = record.get('Name');
 												array.push(text);
 												const listItems = array.map((text) =>
-													<li key={text} style={{cursor:'pointer'}} onClick={addtoColumn}>{text}</li>);
+													<li key={text} onClick={addtoColumn}>{text}</li>);
 
 													ReactDOM.render(
 													  <ul style={{textAlign:'left'}}>{listItems}</ul>,
@@ -365,6 +399,7 @@ class App extends Component {
 											draggable="true"
 											id="top1"
 											onClick={gridtoColumn}
+											onDragOver={(e)=>this.onDragOver(e)}
 											><p id="d1" className="desc">
 											</p>
 											</div>
@@ -377,6 +412,7 @@ class App extends Component {
 											draggable="true"
 											id="top2"
 											onClick={gridtoColumn}
+											onDragOver={(e)=>this.onDragOver(e)}
 											><p id="d2" className="desc">
 											</p>
 
@@ -386,6 +422,7 @@ class App extends Component {
 											draggable="true"
 											id="top3"
 											onClick={gridtoColumn}
+											onDragOver={(e)=>this.onDragOver(e)}
 											><p id="d3" className="desc">
 											</p>
 
@@ -399,6 +436,7 @@ class App extends Component {
 											draggable="true"
 											id="top4"
 											onClick={gridtoColumn}
+											onDragOver={(e)=>this.onDragOver(e)}
 											><p id="d4" className="desc">
 											</p>
 
@@ -408,6 +446,7 @@ class App extends Component {
 											draggable="true"
 											id="top5"
 											onClick={gridtoColumn}
+											onDragOver={(e)=>this.onDragOver(e)}
 											><p id="d5" className="desc">
 											</p>
 
@@ -421,6 +460,7 @@ class App extends Component {
 											draggable="true"
 											id="top6"
 											onClick={gridtoColumn}
+											onDragOver={(e)=>this.onDragOver(e)}
 											><p id="d6" className="desc">
 											</p>
 
@@ -430,6 +470,8 @@ class App extends Component {
 											draggable="true"
 											id="top7"
 											onClick={gridtoColumn}
+											onDragOver={(e)=>this.onDragOver(e)}
+											onDrop={(e)=>{this.onDrop(e)}}
 											>
 											<p id="d7" className="desc">
 											</p>
@@ -467,6 +509,8 @@ class App extends Component {
 								margin:'1.5%',padding:'2%',textAlign:'center'}}
 								className="mostdiv"
 								id="panel"
+								onDragOver={(e)=>this.onDragOverHover(e)}
+								onDrop={(e)=>{this.onDrop(e)}}
 
 								>
 
@@ -683,7 +727,7 @@ else if (document.getElementById('start').innerHTML == 'stop')
 };
 
 
-
+//timing modifiers
 
 if (running==true){
 	running = false;
@@ -718,5 +762,5 @@ if (running == true){
  }
 
 	function populateBase(){
-
+		//here goes save to base code - coming soon
 	}

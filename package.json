@@ -30,6 +30,7 @@
   "dependencies": {
     "airtable": "^0.8.1",
     "css-loader": "^0.28.5",
+    "es6-promise": "^4.2.8",
     "less-loader": "^4.0.5",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
