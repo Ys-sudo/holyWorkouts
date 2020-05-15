@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
-export default class Howto extends React.Component {
+export default class Index extends React.Component {
 	render () {
 		return (
 			<div>
