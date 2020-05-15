@@ -283,7 +283,7 @@ class App extends Component {
 								 <img src="/components/svg/github.svg" height="15px" width="15px" />
 								 </a>
 
-
+								 {/*
 								 <a href="/Howto">
  										<button className="mostdiv" style={{position:'fixed',right:'15%',top:'1%',fontSize:'10px',padding:'5px'}} id="how">how to use ?</button>
  								</a>
@@ -291,7 +291,7 @@ class App extends Component {
 
 
 										<button onClick={nightDay} className="mostdiv" style={{position:'fixed',right:'21%',top:'1%',fontSize:'10px',padding:'5px'}} id="night">dark mode</button>
-
+										*/}
 									<hr />
 								</div>
 
