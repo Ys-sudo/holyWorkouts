@@ -267,9 +267,9 @@ class App extends Component {
 
 
 					}}>
-									<div style={{position:'absolute',top:'0px',left:'0px',
-									width:'80%',height:'50px',
-									marginBottom:'50px',paddingLeft:'50px',paddingRight:'50px'
+									<div style={{position:'absolute',top:'0px',left:'1%',
+									width:'90%',height:'50px',
+									marginBottom:'50px',paddingLeft:'20px',paddingRight:'20px'
 								}}>
 
 
@@ -279,7 +279,7 @@ class App extends Component {
 								 src="https://scontent.fath3-3.fna.fbcdn.net/v/t1.0-9/64545806_2655277794499757_5837268830560190464_n.png?_nc_cat=104&_nc_sid=85a577&_nc_eui2=AeHfcy6Fgm77OqLq5x9u10EIU_V0sYJkm_xT9XSxgmSb_Jv9Wj0uHPqEElW13TkZNc5HX_cEsDdWBboyNr_hvuVg&_nc_ohc=cgM_zys4X2oAX_u7X0c&_nc_ht=scontent.fath3-3.fna&oh=06237fdd46392dd9311bc9d1dadee4dc&oe=5EE508BA"
 								  height="15px" width="15px"/><b style={{color:'rgb(238,74,100)',lineHeight:'15px'}}>holy</b> Workouts  🤸🏿‍</a></p>
 
-								 <a style={{position:'fixed',right:'15%',top:'1%',fontSize:'10px',padding:'5px'}} href="https://github.com/Ys-sudo/holyWorkouts">
+								 <a style={{position:'fixed',right:'10%',top:'1%',fontSize:'10px',padding:'5px'}} href="https://github.com/Ys-sudo/holyWorkouts">
 								 <img src="/components/svg/github.svg" height="15px" width="15px" />
 								 </a>
 
@@ -295,7 +295,7 @@ class App extends Component {
 									<hr />
 								</div>
 
-									<div style={{right:'15%',top:'13%',
+									<div style={{right:'10%',top:'8%',
 									position:'fixed',
 									display:'flex',
 									zIndex:'1000',
@@ -327,7 +327,7 @@ class App extends Component {
 						{/*Heading and workouts UI*/}
 
 						<div  style={{
-							paddingLeft:'10%',
+							paddingLeft:'8%',
 							paddingRight:'10%',
 							zIndex:'100',
 						}}>
@@ -335,7 +335,7 @@ class App extends Component {
 							marginLeft:'10px'
 						}}> <a  href="/#exercises"><b style={{color:'rgb(238,74,100)'}}>Customize</b> your workout:</a></p>
 						<p
-						style={{position:'fixed',right:'15%',top:'8%',zIndex:'1000',backgroundColor:'white',padding:'2px'}}>
+						style={{position:'fixed',right:'10%',top:'13%',zIndex:'1000',backgroundColor:'white',padding:'2px'}}>
 						Total time: <b><span id="clock">0:00<b> m</b></span></b></p>
 						&nbsp;
 						<br></br>
@@ -367,10 +367,10 @@ class App extends Component {
 							{/*search and break UI*/}
 
 								<div
-								style={{width:'85%',
+								style={{width:'90%',
 								backgroundColor:'rgb(222,222,222)',
 								borderRadius:'20px',
-								margin:'1.5%',padding:'1%',textAlign:'center'}}
+								margin:'1.5%',padding:'1%',marginLeft:'-2%',textAlign:'center'}}
 								className="mostdiv"
 								>
 
@@ -556,7 +556,7 @@ class App extends Component {
 									*/}
 
 								<div
-								style={{width:'85%',
+								style={{width:'90%',
 								backgroundColor:'rgb(222,222,222)',
 								borderRadius:'20px',
 								margin:'1.5%',padding:'2%',textAlign:'center'}}
