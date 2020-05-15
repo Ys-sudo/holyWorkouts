@@ -6,7 +6,7 @@ a{
 }
 body{
   font-family:"aktiv-grotesk-extended";
-  overflow-x: hidden;
+  overflow-x: none;
   font-size: 12px;
   background-color: rgb(236,235,235);
 }
@@ -156,6 +156,7 @@ li:hover{
   background-size: cover;
   -webkit-filter: grayscale(100%);
   filter:grayscale(100%);
+  z-index: 10;
 
   cursor: url(svg/Add_Blue.svg) 10 10, auto;
 
@@ -167,4 +168,37 @@ li:hover{
   cursor: url(svg/Add_Blue.svg) 10 10, auto;
 
 
+}
+#mainholder {
+  display: flex;
+}
+
+@media screen and (max-width: 700px) {
+  #mainholder {
+    display: block;
+  }
+  #save, #start, #cleaningservice, #how, #home{
+    color: rgb(240,240,240);
+    border: 2px solid rgb(238,74,100);
+    background-color: rgb(238,74,100);
+    font-size: 10px;
+    line-height: 1;
+    padding: 5px;
+
+
+  }#save:hover, #start:hover, #cleaningservice:hover, #how:hover, #home:hover{
+    color: rgb(238,74,100);
+    border: 2px solid rgb(238,74,100);
+    background-color: white;
+    font-size: 13px;
+    line-height: 0.8;
+
+
+  }
+  #custom{
+    padding-top: 20px;
+  }
+  #topmain{
+    padding-left: 3% !important;
+  }
 }
