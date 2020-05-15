@@ -433,7 +433,7 @@ class App extends Component {
 												// i don't know why yet but it fixes the
 												//duplication problem, string hardcoded / TODO
 												//creativity wins!
-												let p = 'Lethal Dreadlifts';
+												let p = 'Lethal Dreadlifts x 40';
 
 												arr.unshift('<div class="special mostdiv"><img src="/components/svg/Drag.svg" style="margin-right:30px" height="15px" width="15px"/><b>'+p+'</b><img src="/components/svg/Delete.svg" onclick="destroyer(event)"  class="destro" height="15px" width="15px"/></div>');
 

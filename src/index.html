@@ -64,7 +64,13 @@
       		console.log(event.target.closest('div'));
 
           event.target.closest('div').outerHTML = ' ';
-
+          let index = arr.indexOf(event.target.closest('div').innerHTML);
+          console.log(index);
+          if (index >= -1) {
+          arr.splice(index, 1);
+          return arr;
+          console.log(arr);
+          }
 
       	}
 
