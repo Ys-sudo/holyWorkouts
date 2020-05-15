@@ -298,6 +298,7 @@ class App extends Component {
 									<div style={{right:'15%',top:'13%',
 									position:'fixed',
 									display:'flex',
+									zIndex:'1000',
 								}}>
 
 
@@ -325,15 +326,16 @@ class App extends Component {
 
 						{/*Heading and workouts UI*/}
 
-						<div style={{
+						<div  style={{
 							paddingLeft:'10%',
-							paddingRight:'10%'
+							paddingRight:'10%',
+							zIndex:'100',
 						}}>
-						<p style={{
+						<p id="custom" style={{
 							marginLeft:'10px'
-						}}> <a href="/#exercises"><b style={{color:'rgb(238,74,100)'}}>Customize</b> your workout:</a></p>
+						}}> <a  href="/#exercises"><b style={{color:'rgb(238,74,100)'}}>Customize</b> your workout:</a></p>
 						<p
-						style={{position:'fixed',right:'15%',top:'8%'}}>
+						style={{position:'fixed',right:'15%',top:'8%',zIndex:'1000',backgroundColor:'white',padding:'2px'}}>
 						Total time: <b><span id="clock">0:00<b> m</b></span></b></p>
 						&nbsp;
 						<br></br>
@@ -352,7 +354,7 @@ class App extends Component {
 
 
 
-						<div style={{display:'flex',paddingLeft:'10%',
+						<div id="mainholder" style={{paddingLeft:'10%',
 						paddingRight:'10%'}}
 							>
 
@@ -365,7 +367,7 @@ class App extends Component {
 							{/*search and break UI*/}
 
 								<div
-								style={{width:'40%',
+								style={{width:'85%',
 								backgroundColor:'rgb(222,222,222)',
 								borderRadius:'20px',
 								margin:'1.5%',padding:'1%',textAlign:'center'}}
@@ -554,7 +556,7 @@ class App extends Component {
 									*/}
 
 								<div
-								style={{width:'40%',
+								style={{width:'85%',
 								backgroundColor:'rgb(222,222,222)',
 								borderRadius:'20px',
 								margin:'1.5%',padding:'2%',textAlign:'center'}}
