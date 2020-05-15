@@ -8,9 +8,7 @@ import {Link} from 'react-router-dom';
 import { PropTypes } from 'react';
 
 
-/*<Link to="/about">
-		<button>Go to About</button>
-</Link>*/
+
 
 //login to database - unsafe / move to secrets .env
 var Airtable = require('airtable');
@@ -30,6 +28,7 @@ let i = 0;
 
     records.forEach(function(record) {
       //console.log(i,record.get('Name'),record.get('Photo')[0].url);
+
 			document.getElementById('top'+i).style.backgroundImage = 'url('+record.get('Photo')[0].url+')';
 			document.getElementById('d'+i).innerHTML = record.get('Name');
 
@@ -65,8 +64,16 @@ class App extends Component {
 		e.preventDefault();
 		console.log(y);
 
-		arr.unshift(y);
+		arr.unshift('<div><img src="/components/svg/Drag.svg" style="position:absolute;right:30%;margin-top:30px" height="15px" width="15px"/><b style="padding-left:30px">'+ y + '</b><img src="/components/svg/Delete.svg" onclick="destroyer(event)" style="position:absolute;margin-top:-30px; right:23%" height="15px" width="15px"/></div>');
+
+
+		if (e.target.style.backgroundColor == 'rgb(238,74,100)'){
+			e.target.style.backgroundColor = 'rgb(243,243,243)'
+		}else {
 		e.target.style.backgroundColor = 'rgb(238,74,100)';
+	}
+
+
 		document.getElementById('panel').innerHTML = arr.join('');
 
 		console.log('drop'+y);
@@ -84,6 +91,7 @@ class App extends Component {
 
 		let p = e.target.outerHTML;
 		 y = p;
+
 		 return y;
 
 
@@ -264,13 +272,30 @@ class App extends Component {
 									marginBottom:'50px',paddingLeft:'50px',paddingRight:'50px'
 								}}>
 
+
+
 									<p><a href=""> <img style={{
 									position:'relative',marginRight:'13px'}}
-								 src="https://scontent.fath3-3.fna.fbcdn.net/v/t1.0-9/64545806_2655277794499757_5837268830560190464_n.png?_nc_cat=104&_nc_sid=85a577&_nc_eui2=AeHfcy6Fgm77OqLq5x9u10EIU_V0sYJkm_xT9XSxgmSb_Jv9Wj0uHPqEElW13TkZNc5HX_cEsDdWBboyNr_hvuVg&_nc_ohc=cgM_zys4X2oAX_u7X0c&_nc_ht=scontent.fath3-3.fna&oh=06237fdd46392dd9311bc9d1dadee4dc&oe=5EE508BA" height="15px" width="15px"/><b style={{color:'rgb(238,74,100)'}}>holy</b> Workouts </a></p>
+								 src="https://scontent.fath3-3.fna.fbcdn.net/v/t1.0-9/64545806_2655277794499757_5837268830560190464_n.png?_nc_cat=104&_nc_sid=85a577&_nc_eui2=AeHfcy6Fgm77OqLq5x9u10EIU_V0sYJkm_xT9XSxgmSb_Jv9Wj0uHPqEElW13TkZNc5HX_cEsDdWBboyNr_hvuVg&_nc_ohc=cgM_zys4X2oAX_u7X0c&_nc_ht=scontent.fath3-3.fna&oh=06237fdd46392dd9311bc9d1dadee4dc&oe=5EE508BA"
+								  height="15px" width="15px"/><b style={{color:'rgb(238,74,100)',lineHeight:'15px'}}>holy</b> Workouts  🤸🏿‍</a></p>
+
+								 <a style={{position:'fixed',right:'27%',top:'1%',fontSize:'10px',padding:'5px'}} href="https://github.com/Ys-sudo/holyWorkouts">
+								 <img src="/components/svg/github.svg" height="15px" width="15px" />
+								 </a>
+
+
+								 <a href="/Howto">
+ 										<button className="mostdiv" style={{position:'fixed',right:'15%',top:'1%',fontSize:'10px',padding:'5px'}} id="how">how to use ?</button>
+ 								</a>
+
+
+
+										<button onClick={nightDay} className="mostdiv" style={{position:'fixed',right:'21%',top:'1%',fontSize:'10px',padding:'5px'}} id="night">dark mode</button>
+
 									<hr />
 								</div>
 
-									<div style={{right:'15%',top:'15%',
+									<div style={{right:'15%',top:'13%',
 									position:'fixed',
 									display:'flex',
 								}}>
@@ -306,7 +331,7 @@ class App extends Component {
 						}}>
 						<p style={{
 							marginLeft:'10px'
-						}}> <a href="/#exercises"><b style={{color:'rgb(238,74,100)'}}>Customize</b> your workout</a></p>
+						}}> <a href="/#exercises"><b style={{color:'rgb(238,74,100)'}}>Customize</b> your workout:</a></p>
 						<p
 						style={{position:'fixed',right:'15%',top:'8%'}}>
 						Total time: <b><span id="clock">0:00<b> m</b></span></b></p>
@@ -408,7 +433,7 @@ class App extends Component {
 												//creativity wins!
 												let p = 'Lethal Dreadlifts';
 
-												arr.unshift('<div class="special mostdiv"><img src="/components/svg/Drag.svg" style="margin-right:30px" height="15px" width="15px"/><b>'+p+'</b><img src="/components/svg/Delete.svg" style="position:absolute; right:23%" height="15px" width="15px"/></div>');
+												arr.unshift('<div class="special mostdiv"><img src="/components/svg/Drag.svg" style="margin-right:30px" height="15px" width="15px"/><b>'+p+'</b><img src="/components/svg/Delete.svg" onclick="destroyer(event)" style="position:absolute; right:23%" height="15px" width="15px"/></div>');
 
 												console.log(document.getElementsByClassName('dupli'));
 
@@ -567,7 +592,7 @@ App.propTypes = {
 //insert break block  <input style="margin-left:30%;width:30px" placeholder="5min" type="number/>
 function addBreak(){
 	<img src="/components/svg/Break.svg" height="15px" width="15px"/>
-		arr.unshift('<div class="break mostdiv" draggable="true"><img src="/components/svg/Break.svg" style="margin-right:30px" height="15px" width="15px"/><b>Break</b> 5 min'+'<img src="/components/svg/Delete.svg" style="position:absolute; right:23%" height="15px" width="15px"/></div>');
+		arr.unshift('<div class="break mostdiv" draggable="true"><img src="/components/svg/Break.svg" style="margin-right:30px" height="15px" width="15px"/><b>Break</b> 5 min'+'<img src="/components/svg/Delete.svg" onclick="destroyer(event)" style="position:absolute; right:23%" height="15px" width="15px"/></div>');
 		//console.log(arr);
 		document.getElementById('panel').innerHTML = arr.join('');
 	}
@@ -599,7 +624,7 @@ function addBreak(){
 
 						console.log(p);
 
-						arr.unshift('<div class="desc mostdiv" draggable="true"><img src="/components/svg/Drag.svg" style="margin-right:30px" height="15px" width="15px"/><b>'+record.get('Name')+'</b><img src="/components/svg/Delete.svg" style="position:absolute; right:23%" height="15px" width="15px"/></div>');
+						arr.unshift('<div class="desc mostdiv" draggable="true"><img src="/components/svg/Drag.svg" style="margin-right:30px" height="15px" width="15px"/><b>'+record.get('Name')+'</b><img src="/components/svg/Delete.svg" onclick="destroyer(event)" style="position:absolute; right:23%" height="15px" width="15px"/></div>');
 						document.getElementById('panel').innerHTML = arr.join('');
 
 
@@ -654,7 +679,7 @@ function addtoColumn(e){
 				// true
 				if (p.match(record.get('Name'))) {
 					console.log(p);
-					arr.unshift('<div class="desc mostdiv" draggable="true" ><img src="/components/svg/Drag.svg" style="margin-right:30px" height="15px" width="15px"/><b>'+p+'</b><img src="/components/svg/Delete.svg" style="position:absolute; right:23%" height="15px" width="15px"/></div>');
+					arr.unshift('<div class="desc mostdiv" draggable="true" ><img src="/components/svg/Drag.svg" style="margin-right:30px" height="15px" width="15px"/><b>'+p+'</b><img src="/components/svg/Delete.svg" onclick="destroyer(event)" style="position:absolute; right:23%" height="15px" width="15px"/></div>');
 
 						document.getElementById('panel').innerHTML = arr.join('');
 
@@ -792,4 +817,11 @@ if (running==true){
 
 	function populateBase(){
 		//here goes save to base code - coming soon
+		alert('Coming Soon 🤸')
+	}
+
+
+	function nightDay(){
+		//here goes save to base code - coming soon
+		alert('Coming Soon 🤸')
 	}

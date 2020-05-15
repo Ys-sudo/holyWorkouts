@@ -1,24 +1,4 @@
-@import url("https://p.typekit.net/p.css?s=1&k=zsc5kqi&ht=tk&f=26909.26913.26915&a=776988&app=typekit&e=css");
 
-@font-face {
-font-family:"aktiv-grotesk-extended";
-src:url("https://use.typekit.net/af/e10446/00000000000000003b9ad13a/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff2"),url("https://use.typekit.net/af/e10446/00000000000000003b9ad13a/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff"),url("https://use.typekit.net/af/e10446/00000000000000003b9ad13a/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("opentype");
-font-display:auto;font-style:normal;font-weight:400;
-}
-
-@font-face {
-font-family:"aktiv-grotesk-extended";
-src:url("https://use.typekit.net/af/3f03c1/00000000000000003b9ad13e/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3") format("woff2"),url("https://use.typekit.net/af/3f03c1/00000000000000003b9ad13e/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3") format("woff"),url("https://use.typekit.net/af/3f03c1/00000000000000003b9ad13e/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3") format("opentype");
-font-display:auto;font-style:normal;font-weight:700;
-}
-
-@font-face {
-font-family:"aktiv-grotesk-extended";
-src:url("https://use.typekit.net/af/50539a/00000000000000003b9ad140/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n8&v=3") format("woff2"),url("https://use.typekit.net/af/50539a/00000000000000003b9ad140/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n8&v=3") format("woff"),url("https://use.typekit.net/af/50539a/00000000000000003b9ad140/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n8&v=3") format("opentype");
-font-display:auto;font-style:normal;font-weight:800;
-}
-
-.tk-aktiv-grotesk-extended { font-family: "aktiv-grotesk-extended",sans-serif; }
 
 a{
   color: rgb(45,45,45);
@@ -40,21 +20,31 @@ button{
   cursor: pointer;
 
 }
-#save, #start, #cleaningservice{
+#night{
+  color: rgb(238,74,100);
+  border: 2px solid rgb(40,40,40);
+  background-color: rgb(40,40,40);
+  font-size: 12px;
+  line-height: 1;
+  padding: 8px;
+}
+#save, #start, #cleaningservice, #how, #home{
   color: rgb(240,240,240);
   border: 2px solid rgb(238,74,100);
   background-color: rgb(238,74,100);
   font-size: 12px;
+  line-height: 1;
   padding: 8px;
 
 
 }
-#save:hover, #start:hover, #cleaningservice:hover{
+
+#save:hover, #start:hover, #cleaningservice:hover, #how:hover, #home:hover{
   color: rgb(238,74,100);
   border: 2px solid rgb(238,74,100);
   background-color: white;
   font-size: 15px;
-
+  line-height: 0.8;
 
 
 }
@@ -116,7 +106,7 @@ border: 5px solid rgb(238,74,100) !important;
 
   text-align: left;
   padding: 12px;
-  font-size: 12px;
+  font-size: 10px;
   color: whitesmoke;
 
   border-radius: 10px;
@@ -129,6 +119,7 @@ border: 5px solid rgb(238,74,100) !important;
 .break:hover{
   background-color: whitesmoke;
   color:rgb(238,74,100);
+  font-size: 12px;
   cursor: url(svg/Break.svg) 10 10, auto;
 }
 .special{
@@ -163,14 +154,17 @@ li:hover{
   margin: 15px;
   background-position: center, center;
   background-size: cover;
-
+  -webkit-filter: grayscale(100%);
+  filter:grayscale(100%);
 
   cursor: url(svg/Add_Blue.svg) 10 10, auto;
 
 }
 .image:hover{
   color: white !important;
-  -webkit-filter: grayscale(100%);
-  filter:grayscale(100%);
+  -webkit-filter: grayscale(0%);
+  filter:grayscale(0%);
+  cursor: url(svg/Add_Blue.svg) 10 10, auto;
+
 
 }

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Holy Workout  🤸🏿‍ </title>
+
+        <style>
+
+        @import url("https://p.typekit.net/p.css?s=1&k=zsc5kqi&ht=tk&f=26909.26913.26915&a=776988&app=typekit&e=css");
+
+        @font-face {
+        font-family:"aktiv-grotesk-extended";
+        src:url("https://use.typekit.net/af/e10446/00000000000000003b9ad13a/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff2"),url("https://use.typekit.net/af/e10446/00000000000000003b9ad13a/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff"),url("https://use.typekit.net/af/e10446/00000000000000003b9ad13a/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("opentype");
+        font-display:auto;font-style:normal;font-weight:400;
+        }
+
+        @font-face {
+        font-family:"aktiv-grotesk-extended";
+        src:url("https://use.typekit.net/af/3f03c1/00000000000000003b9ad13e/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3") format("woff2"),url("https://use.typekit.net/af/3f03c1/00000000000000003b9ad13e/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3") format("woff"),url("https://use.typekit.net/af/3f03c1/00000000000000003b9ad13e/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3") format("opentype");
+        font-display:auto;font-style:normal;font-weight:700;
+        }
+
+        @font-face {
+        font-family:"aktiv-grotesk-extended";
+        src:url("https://use.typekit.net/af/50539a/00000000000000003b9ad140/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n8&v=3") format("woff2"),url("https://use.typekit.net/af/50539a/00000000000000003b9ad140/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n8&v=3") format("woff"),url("https://use.typekit.net/af/50539a/00000000000000003b9ad140/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n8&v=3") format("opentype");
+        font-display:auto;font-style:normal;font-weight:800;
+        }
+
+        .tk-aktiv-grotesk-extended { font-family: "aktiv-grotesk-extended",sans-serif; }
+
+
+
+        </style>
+
+
+        <link rel="shortcut icon" href="https://scontent.fath3-3.fna.fbcdn.net/v/t1.0-9/64545806_2655277794499757_5837268830560190464_n.png?_nc_cat=104&_nc_sid=85a577&_nc_eui2=AeHfcy6Fgm77OqLq5x9u10EIU_V0sYJkm_xT9XSxgmSb_Jv9Wj0uHPqEElW13TkZNc5HX_cEsDdWBboyNr_hvuVg&_nc_ohc=cgM_zys4X2oAX_u7X0c&_nc_ht=scontent.fath3-3.fna&oh=06237fdd46392dd9311bc9d1dadee4dc&oe=5EE508BA">
+
+        <link rel="stylesheet" type="text/css" href="/components/styles.css">
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </head>
+    <body>
+
+        <div
+         id="app"></div>
+        <script type="text/javascript" src="/bundle.js"></script>
+
+        <script type="text/javascript">
+
+        let arr = [];
+
+        function destroyer(event){
+        event.preventDefault();
+      		console.log(event.target.closest('div'));
+
+          event.target.closest('div').outerHTML = ' ';
+
+
+      	}
+
+
+        function closest(el, selector, stopSelector) {
+          if(!el || !el.parentElement) return null
+          else if(stopSelector && el.parentElement.matches(stopSelector)) return null
+          else if(el.parentElement.matches(selector)) return el.parentElement
+          else return closest(el.parentElement, selector, stopSelector)
+        }
+
+        </script>
+
+    </body>
+</html>
