@@ -172,7 +172,10 @@ li:hover{
 #mainholder {
   display: flex;
 }
-
+.destro{
+  position: absolute;
+  right:17%;
+}
 @media screen and (max-width: 700px) {
   #mainholder {
     display: block;
@@ -200,5 +203,9 @@ li:hover{
   }
   #topmain{
     padding-left: 3% !important;
+  }
+  .destro{
+    position: absolute;
+    right:25%;
   }
 }
