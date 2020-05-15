@@ -10,14 +10,15 @@ module.exports = {
         contentBase: "./dist",
     },
     module: {
-        loaders: [
+      loaders: [
+        {
+                test: /\.js$/,
+                exclude:/node_modules/,        //exclude排除不使用loader的目录
+                loader: "react-hot-loader!babel-loader"
+            },
             {
-                test: /\.jsx?$/,
-                exclude:/(node_modules|bower_components)/,
-                loader: 'babel-loader',
-                query: {
-                    presets: ['es2015', 'react']
-                }
+                test: /\.css$/,        //判断是不是css文件
+                loader:"style-loader!css-loader"    //必须写-loader，不能简写，否则报错
             }
         ]
     }
