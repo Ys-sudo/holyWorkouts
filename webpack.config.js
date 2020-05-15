@@ -37,7 +37,10 @@ const config = {
     }
   },
   devServer: {
-    contentBase: './dist'
+    contentBase: './dist',
+    allowedHosts: [
+      'holyworkouts.netlify.app',
+    ]
   }
 };
 
