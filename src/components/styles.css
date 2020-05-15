@@ -208,4 +208,7 @@ li:hover{
     position: absolute;
     right:25%;
   }
+  #panel{
+    margin-left: -2% !important;
+  }
 }

@@ -180,6 +180,9 @@ li:hover{
   #mainholder {
     display: block;
   }
+  #panel{
+    margin-left: -2% !important;
+  }
   #save, #start, #cleaningservice, #how, #home{
     color: rgb(240,240,240);
     border: 2px solid rgb(238,74,100);
