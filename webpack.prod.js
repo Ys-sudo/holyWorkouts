@@ -1,5 +1,11 @@
 module.exports = {
-    entry: "./src/index.js",
+  entry: {
+ app: [
+   'react-hot-loader/patch',
+   'webpack/hot/only-dev-server',
+   './src/index.js'
+ ],
+},
     output: {
         path:__dirname+ '/dist/',
         filename: "bundle.js",
@@ -14,7 +20,7 @@ module.exports = {
         {
                 test: /\.js$/,
                 exclude:/node_modules/,        //exclude排除不使用loader的目录
-                loader: "react-hot-loader!babel-loader"
+                loader: "babel-loader"
             },
             {
                 test: /\.css$/,        //判断是不是css文件
