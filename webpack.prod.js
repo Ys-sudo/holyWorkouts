@@ -1,7 +1,7 @@
 module.exports = {
   entry: {
  app: [
-   'react-hot-loader/patch',
+  
    'webpack/hot/only-dev-server',
    './src/index.js'
  ],
