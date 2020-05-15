@@ -279,7 +279,7 @@ class App extends Component {
 								 src="https://scontent.fath3-3.fna.fbcdn.net/v/t1.0-9/64545806_2655277794499757_5837268830560190464_n.png?_nc_cat=104&_nc_sid=85a577&_nc_eui2=AeHfcy6Fgm77OqLq5x9u10EIU_V0sYJkm_xT9XSxgmSb_Jv9Wj0uHPqEElW13TkZNc5HX_cEsDdWBboyNr_hvuVg&_nc_ohc=cgM_zys4X2oAX_u7X0c&_nc_ht=scontent.fath3-3.fna&oh=06237fdd46392dd9311bc9d1dadee4dc&oe=5EE508BA"
 								  height="15px" width="15px"/><b style={{color:'rgb(238,74,100)',lineHeight:'15px'}}>holy</b> Workouts  🤸🏿‍</a></p>
 
-								 <a style={{position:'fixed',right:'10%',top:'1%',fontSize:'10px',padding:'5px'}} href="https://github.com/Ys-sudo/holyWorkouts">
+								 <a style={{position:'fixed',right:'80px',top:'1%',fontSize:'10px',padding:'5px'}} href="https://github.com/Ys-sudo/holyWorkouts">
 								 <img src="/components/svg/github.svg" height="15px" width="15px" />
 								 </a>
 
