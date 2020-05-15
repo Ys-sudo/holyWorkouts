@@ -64,7 +64,7 @@ class App extends Component {
 		e.preventDefault();
 		console.log(y);
 
-		arr.unshift('<div><img src="/components/svg/Drag.svg" style="position:absolute;right:30%;margin-top:30px" height="15px" width="15px"/><b style="padding-left:30px">'+ y + '</b><img src="/components/svg/Delete.svg" onclick="destroyer(event)" style="position:absolute;margin-top:-30px; right:23%" height="15px" width="15px"/></div>');
+		arr.unshift('<div><img src="/components/svg/Drag.svg" style="position:absolute;right:30%;margin-top:30px" height="15px" width="15px"/><b style="padding-left:30px">'+ y + '</b><img src="/components/svg/Delete.svg" onclick="destroyer(event)" style="position:absolute;margin-top:-30px; right:17%" height="15px" width="15px"/></div>');
 
 
 		if (e.target.style.backgroundColor == 'rgb(238,74,100)'){
@@ -435,7 +435,7 @@ class App extends Component {
 												//creativity wins!
 												let p = 'Lethal Dreadlifts';
 
-												arr.unshift('<div class="special mostdiv"><img src="/components/svg/Drag.svg" style="margin-right:30px" height="15px" width="15px"/><b>'+p+'</b><img src="/components/svg/Delete.svg" onclick="destroyer(event)" style="position:absolute; right:23%" height="15px" width="15px"/></div>');
+												arr.unshift('<div class="special mostdiv"><img src="/components/svg/Drag.svg" style="margin-right:30px" height="15px" width="15px"/><b>'+p+'</b><img src="/components/svg/Delete.svg" onclick="destroyer(event)" style="position:absolute; right:17%" height="15px" width="15px"/></div>');
 
 												console.log(document.getElementsByClassName('dupli'));
 
@@ -594,7 +594,7 @@ App.propTypes = {
 //insert break block  <input style="margin-left:30%;width:30px" placeholder="5min" type="number/>
 function addBreak(){
 	<img src="/components/svg/Break.svg" height="15px" width="15px"/>
-		arr.unshift('<div class="break mostdiv" draggable="true"><img src="/components/svg/Break.svg" style="margin-right:30px" height="15px" width="15px"/><b>Break</b> 5 min'+'<img src="/components/svg/Delete.svg" onclick="destroyer(event)" style="position:absolute; right:23%" height="15px" width="15px"/></div>');
+		arr.unshift('<div class="break mostdiv" draggable="true"><img src="/components/svg/Break.svg" style="margin-right:30px" height="15px" width="15px"/><b>Break</b> 5 min'+'<img src="/components/svg/Delete.svg" onclick="destroyer(event)" style="position:absolute; right:17%" height="15px" width="15px"/></div>');
 		//console.log(arr);
 		document.getElementById('panel').innerHTML = arr.join('');
 	}
@@ -626,7 +626,7 @@ function addBreak(){
 
 						console.log(p);
 
-						arr.unshift('<div class="desc mostdiv" draggable="true"><img src="/components/svg/Drag.svg" style="margin-right:30px" height="15px" width="15px"/><b>'+record.get('Name')+'</b><img src="/components/svg/Delete.svg" onclick="destroyer(event)" style="position:absolute; right:23%" height="15px" width="15px"/></div>');
+						arr.unshift('<div class="desc mostdiv" draggable="true"><img src="/components/svg/Drag.svg" style="margin-right:30px" height="15px" width="15px"/><b>'+record.get('Name')+'</b><img src="/components/svg/Delete.svg" onclick="destroyer(event)" style="position:absolute; right:17%" height="15px" width="15px"/></div>');
 						document.getElementById('panel').innerHTML = arr.join('');
 
 
@@ -681,7 +681,7 @@ function addtoColumn(e){
 				// true
 				if (p.match(record.get('Name'))) {
 					console.log(p);
-					arr.unshift('<div class="desc mostdiv" draggable="true" ><img src="/components/svg/Drag.svg" style="margin-right:30px" height="15px" width="15px"/><b>'+p+'</b><img src="/components/svg/Delete.svg" onclick="destroyer(event)" style="position:absolute; right:23%" height="15px" width="15px"/></div>');
+					arr.unshift('<div class="desc mostdiv" draggable="true" ><img src="/components/svg/Drag.svg" style="margin-right:30px" height="15px" width="15px"/><b>'+p+'</b><img src="/components/svg/Delete.svg" onclick="destroyer(event)" style="position:absolute; right:17%" height="15px" width="15px"/></div>');
 
 						document.getElementById('panel').innerHTML = arr.join('');
 
