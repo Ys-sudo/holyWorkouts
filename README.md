@@ -17,17 +17,17 @@ cd holyWorkouts
 
 npm install
 
-npm run dev
-
 yarn
 
-npm build
+npm run dev
+
+npm run build
 
 
 ```
 
-
-the preview is live at: **localhost:8080** in your browser.
+for build you need a node.js sever.
+for dev the preview is live at: **localhost:8080** in your browser.
 
 
 Either ways i am still working for my previous job until 20th may.
