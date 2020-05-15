@@ -63,23 +63,35 @@ class App extends Component {
 
 	onDrop = (e) => {
 		e.preventDefault();
-		console.log(arr);
+		console.log(y);
+
 		arr.unshift(y);
-		e.target.style.backgroundColor = 'rgb(200,200,200)';
+		e.target.style.backgroundColor = 'rgb(238,74,100)';
 		document.getElementById('panel').innerHTML = arr.join('');
 
-		console.log('drop'+'yes');
+		console.log('drop'+y);
 	};
 
 
 	onDragOver = (e) => {
-
-		let p = e.target.outerHTML;
-		 y = p;
-		 e.preventDefault();
+		e.preventDefault();
 
 		console.log('drag' + y);
 	};
+
+
+	onDragStart = (e) => {
+
+		let p = e.target.outerHTML;
+		 y = p;
+		 return y;
+
+
+		console.log('drag' + y);
+	};
+
+
+
 
 	onDragOverHover = (e) => {
 
@@ -251,18 +263,18 @@ class App extends Component {
 									width:'80%',height:'50px',
 									marginBottom:'50px',paddingLeft:'50px',paddingRight:'50px'
 								}}>
-									<p> <b>holy</b> Workouts </p>
+
+									<p><a href=""> <img style={{
+									position:'relative',marginRight:'13px'}}
+								 src="https://scontent.fath3-3.fna.fbcdn.net/v/t1.0-9/64545806_2655277794499757_5837268830560190464_n.png?_nc_cat=104&_nc_sid=85a577&_nc_eui2=AeHfcy6Fgm77OqLq5x9u10EIU_V0sYJkm_xT9XSxgmSb_Jv9Wj0uHPqEElW13TkZNc5HX_cEsDdWBboyNr_hvuVg&_nc_ohc=cgM_zys4X2oAX_u7X0c&_nc_ht=scontent.fath3-3.fna&oh=06237fdd46392dd9311bc9d1dadee4dc&oe=5EE508BA" height="15px" width="15px"/><b style={{color:'rgb(238,74,100)'}}>holy</b> Workouts </a></p>
 									<hr />
 								</div>
 
-									<div style={{right:'18%',top:'15%',
-									position:'absolute',
+									<div style={{right:'15%',top:'15%',
+									position:'fixed',
 									display:'flex',
 								}}>
-										<p
-										style={{marginLeft:'20px',marginRight:'50px'}}>
-										Total time: <b><span id="clock">0:00<b> m</b></span></b></p>
-										&nbsp;
+
 
 
 
@@ -272,6 +284,11 @@ class App extends Component {
 										<button onClick={()=>{
 											arr=[];
 											document.getElementById('panel').innerHTML = arr;
+
+
+												s='00';
+												m='0';
+											document.getElementById('clock').innerHTML = m+':'+s+ '<b> m</b>'
 										}} id="cleaningservice">clear</button>
 										&nbsp;&nbsp;&nbsp;
 										&nbsp;&nbsp;&nbsp;
@@ -289,7 +306,11 @@ class App extends Component {
 						}}>
 						<p style={{
 							marginLeft:'10px'
-						}}> <b>Customize</b> your workout</p>
+						}}> <a href="/#exercises"><b style={{color:'rgb(238,74,100)'}}>Customize</b> your workout</a></p>
+						<p
+						style={{position:'fixed',right:'15%',top:'8%'}}>
+						Total time: <b><span id="clock">0:00<b> m</b></span></b></p>
+						&nbsp;
 						<br></br>
 
 									<WorkoutSearch
@@ -338,7 +359,7 @@ class App extends Component {
 											<br></br>
 
 											<button onClick={addBreak} id="break"
-											style={{backgroundColor:'rgb(243,243,243)',width:'93%',
+											style={{width:'93%',
 											paddingLeft:'10px',textAlign:'center',lineHeight:'15px',alignItems:'center',
 											marginLeft:'1%',height:'45px',borderRadius:'10px'}}>
 
@@ -346,11 +367,11 @@ class App extends Component {
 											position:'relative',marginRight:'35%'
 										}} src="/components/svg/Break.svg" height="15px" width="15px"/>
 											<span>
-											Add break
+											add break
 											</span>
 											<img style={{
 												position:'relative',marginLeft:'35%',
-											}} src="/components/svg/Add_Blue.svg" height="15px" width="15px"/>
+											}} src="/components/svg/Add_White.svg" height="15px" width="15px"/>
 
 											</button>
 
@@ -366,7 +387,12 @@ class App extends Component {
 										Top exercises:</p>
 
 
-										{/*exercises*/}
+										{/*exercises
+
+											false images / add mask || grayscale filter on hover?
+											 and data is bad generally need to improve
+
+											*/}
 
 
 
@@ -374,7 +400,7 @@ class App extends Component {
 											display:'flex',
 										}}>
 											<div className="image"
-											draggable="true"
+
 											id="top0"
 											onClick={(e) => {
 												// i don't know why yet but it fixes the
@@ -382,7 +408,7 @@ class App extends Component {
 												//creativity wins!
 												let p = 'Lethal Dreadlifts';
 
-												arr.unshift('<div class="break dupli"><b>'+p+'</b></div>');
+												arr.unshift('<div class="special mostdiv"><img src="/components/svg/Drag.svg" style="margin-right:30px" height="15px" width="15px"/><b>'+p+'</b><img src="/components/svg/Delete.svg" style="position:absolute; right:23%" height="15px" width="15px"/></div>');
 
 												console.log(document.getElementsByClassName('dupli'));
 
@@ -390,17 +416,17 @@ class App extends Component {
 
 												document.getElementById('panel').innerHTML = arr.join('');
 											}}
-											><p id="d0" className="desc">
+											><p id="d0" draggable="true" onDragStart={(e)=>this.onDragStart(e)}  onDragOver={(e)=>this.onDragOver(e)}  className="desc" >
 											</p>
 
 											</div>
 
 											<div className="image"
-											draggable="true"
+
 											id="top1"
 											onClick={gridtoColumn}
-											onDragOver={(e)=>this.onDragOver(e)}
-											><p id="d1" className="desc">
+
+											><p draggable="true" onDragStart={(e)=>this.onDragStart(e)}  onDragOver={(e)=>this.onDragOver(e)} id="d1" className="desc" >
 											</p>
 											</div>
 										</div>
@@ -409,21 +435,21 @@ class App extends Component {
 											display:'flex',
 										}}>
 											<div className="image"
-											draggable="true"
+
 											id="top2"
 											onClick={gridtoColumn}
-											onDragOver={(e)=>this.onDragOver(e)}
-											><p id="d2" className="desc">
+
+											><p draggable="true" onDragStart={(e)=>this.onDragStart(e)}  onDragOver={(e)=>this.onDragOver(e)} id="d2" className="desc" >
 											</p>
 
 											</div>
 
 											<div className="image"
-											draggable="true"
+
 											id="top3"
 											onClick={gridtoColumn}
-											onDragOver={(e)=>this.onDragOver(e)}
-											><p id="d3" className="desc">
+
+											><p draggable="true" onDragStart={(e)=>this.onDragStart(e)}  onDragOver={(e)=>this.onDragOver(e)} id="d3" className="desc" >
 											</p>
 
 											</div>
@@ -433,21 +459,21 @@ class App extends Component {
 											display:'flex',
 										}}>
 											<div className="image"
-											draggable="true"
+
 											id="top4"
 											onClick={gridtoColumn}
-											onDragOver={(e)=>this.onDragOver(e)}
-											><p id="d4" className="desc">
+
+											><p draggable="true" onDragStart={(e)=>this.onDragStart(e)}  onDragOver={(e)=>this.onDragOver(e)}  id="d4" className="desc" >
 											</p>
 
 											</div>
 
 											<div className="image"
-											draggable="true"
+
 											id="top5"
 											onClick={gridtoColumn}
-											onDragOver={(e)=>this.onDragOver(e)}
-											><p id="d5" className="desc">
+
+											><p draggable="true" onDragStart={(e)=>this.onDragStart(e)}  onDragOver={(e)=>this.onDragOver(e)} id="d5" className="desc" >
 											</p>
 
 											</div>
@@ -457,23 +483,23 @@ class App extends Component {
 											display:'flex',
 										}}>
 											<div className="image"
-											draggable="true"
+
 											id="top6"
 											onClick={gridtoColumn}
-											onDragOver={(e)=>this.onDragOver(e)}
-											><p id="d6" className="desc">
+
+											><p draggable="true" onDragStart={(e)=>this.onDragStart(e)}  onDragOver={(e)=>this.onDragOver(e)} id="d6" className="desc" >
 											</p>
 
 											</div>
 
 											<div className="image"
-											draggable="true"
+
 											id="top7"
 											onClick={gridtoColumn}
-											onDragOver={(e)=>this.onDragOver(e)}
-											onDrop={(e)=>{this.onDrop(e)}}
+
+
 											>
-											<p id="d7" className="desc">
+											<p draggable="true" onDragStart={(e)=>this.onDragStart(e)}  onDragOver={(e)=>this.onDragOver(e)} id="d7" className="desc" >
 											</p>
 
 											</div>
@@ -536,26 +562,12 @@ App.propTypes = {
 
 };
 
-//debounce
-function debounce(func, wait, immediate) {
-	var timeout;
-	return function() {
-		var context = this, args = arguments;
-		var later = function() {
-			timeout = null;
-			if (!immediate) func.apply(context, args);
-		};
-		var callNow = immediate && !timeout;
-		clearTimeout(timeout);
-		timeout = setTimeout(later, wait);
-		if (callNow) func.apply(context, args);
-	};
-};
 
-//insert break block
+
+//insert break block  <input style="margin-left:30%;width:30px" placeholder="5min" type="number/>
 function addBreak(){
-
-		arr.unshift('<div class="break" draggable="true"><b>Break</b> 5min</div>');
+	<img src="/components/svg/Break.svg" height="15px" width="15px"/>
+		arr.unshift('<div class="break mostdiv" draggable="true"><img src="/components/svg/Break.svg" style="margin-right:30px" height="15px" width="15px"/><b>Break</b> 5 min'+'<img src="/components/svg/Delete.svg" style="position:absolute; right:23%" height="15px" width="15px"/></div>');
 		//console.log(arr);
 		document.getElementById('panel').innerHTML = arr.join('');
 	}
@@ -582,12 +594,12 @@ function addBreak(){
 
 					// true
 					if (p.match(record.get('Name'))) {
-						//fix the duplication on first item (WTF?):
+						//fix the duplication on first item ...
 
 
 						console.log(p);
 
-						arr.unshift('<div class="break" draggable="true"><b>'+record.get('Name')+'</b></div>');
+						arr.unshift('<div class="desc mostdiv" draggable="true"><img src="/components/svg/Drag.svg" style="margin-right:30px" height="15px" width="15px"/><b>'+record.get('Name')+'</b><img src="/components/svg/Delete.svg" style="position:absolute; right:23%" height="15px" width="15px"/></div>');
 						document.getElementById('panel').innerHTML = arr.join('');
 
 
@@ -642,7 +654,7 @@ function addtoColumn(e){
 				// true
 				if (p.match(record.get('Name'))) {
 					console.log(p);
-					arr.unshift('<div class="break" draggable="true"><b>'+p+'</b></div>');
+					arr.unshift('<div class="desc mostdiv" draggable="true" ><img src="/components/svg/Drag.svg" style="margin-right:30px" height="15px" width="15px"/><b>'+p+'</b><img src="/components/svg/Delete.svg" style="position:absolute; right:23%" height="15px" width="15px"/></div>');
 
 						document.getElementById('panel').innerHTML = arr.join('');
 
@@ -675,7 +687,7 @@ let m = 0;
 function fireTimer(){
 
 
-	s=0;m=0;
+
 
 	var t = setInterval( function(){
 
@@ -694,7 +706,7 @@ function fireTimer(){
 			m++;
 			//console.log(m+':'+s);
 			}
-			 document.getElementById('clock').innerHTML = m+':'+s + '<b> m</b>';
+			 document.getElementById('clock').innerHTML = m+':'+s + '<b style="color:rgb(238,74,100)"> m</b>';
 	},1000);
 
 
@@ -713,11 +725,11 @@ if(document.getElementById('start').innerHTML == 'start')
 {
 	fireTimer();
 	running = true;
-	document.getElementById('start').innerHTML = 'stop';
+	document.getElementById('start').innerHTML = 'pause';
 
 
 }
-else if (document.getElementById('start').innerHTML == 'stop')
+else if (document.getElementById('start').innerHTML == 'pause')
 {
 
 	running= false;
@@ -727,7 +739,9 @@ else if (document.getElementById('start').innerHTML == 'stop')
 };
 
 
-//timing modifiers
+//timing modifiers - might be hard to understand how this works,
+//reversing the values allows reusing the call
+//and keeping it all in one function
 
 if (running==true){
 	running = false;
@@ -746,10 +760,7 @@ if (running==true){
 
 
 
-if (running == true){
 
-
-}
 
 
 
@@ -760,6 +771,24 @@ if (running == true){
 
 
  }
+
+
+ //debounce
+ function debounce(func, wait, immediate) {
+ 	var timeout;
+ 	return function() {
+ 		var context = this, args = arguments;
+ 		var later = function() {
+ 			timeout = null;
+ 			if (!immediate) func.apply(context, args);
+ 		};
+ 		var callNow = immediate && !timeout;
+ 		clearTimeout(timeout);
+ 		timeout = setTimeout(later, wait);
+ 		if (callNow) func.apply(context, args);
+ 	};
+ };
+
 
 	function populateBase(){
 		//here goes save to base code - coming soon

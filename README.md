@@ -1,6 +1,7 @@
 # holyWorkouts App
 The workout app test for holy.
-
+Created in 3 days of sprint based on the resources and my awesome coding skills.
+Now i need 3 days of chill :-)
 
 react.js / node.js
 
@@ -16,6 +17,10 @@ cd holyWorkouts
 npm install
 
 npm run dev
+
+yarn
+
+npm build
 
 
 ```
