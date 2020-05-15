@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import WorkoutSearch from '..src/components/WorkoutSearch';
-import ExerciseSearch from '..src/components/ExerciseSearch';
+import WorkoutSearch from '../components/WorkoutSearch';
+import ExerciseSearch from '../components/ExerciseSearch';
 import {connect} from 'react-redux';
 import {setSearch} from '../actions/search';
 import ReactDOM from 'react-dom';
@@ -64,7 +64,7 @@ class App extends Component {
 		e.preventDefault();
 		console.log(y);
 
-		arr.unshift('<div><img src="src/components/svg/Drag.svg" style="position:absolute;right:30%;margin-top:30px" height="15px" width="15px"/><b style="padding-left:30px">'+ y + '</b><img src="srcsrc/components/svg/Delete.svg" onclick="destroyer(event)" style="position:absolute;margin-top:-30px; right:23%" height="15px" width="15px"/></div>');
+		arr.unshift('<div><img src="/components/svg/Drag.svg" style="position:absolute;right:30%;margin-top:30px" height="15px" width="15px"/><b style="padding-left:30px">'+ y + '</b><img src="/components/svg/Delete.svg" onclick="destroyer(event)" style="position:absolute;margin-top:-30px; right:23%" height="15px" width="15px"/></div>');
 
 
 		if (e.target.style.backgroundColor == 'rgb(238,74,100)'){
@@ -280,7 +280,7 @@ class App extends Component {
 								  height="15px" width="15px"/><b style={{color:'rgb(238,74,100)',lineHeight:'15px'}}>holy</b> Workouts  🤸🏿‍</a></p>
 
 								 <a style={{position:'fixed',right:'27%',top:'1%',fontSize:'10px',padding:'5px'}} href="https://github.com/Ys-sudo/holyWorkouts">
-								 <img src="src/components/svg/github.svg" height="15px" width="15px" />
+								 <img src="/components/svg/github.svg" height="15px" width="15px" />
 								 </a>
 
 
@@ -390,13 +390,13 @@ class App extends Component {
 
 											<img style={{
 											position:'relative',marginRight:'35%'
-										}} src="src/components/svg/Break.svg" height="15px" width="15px"/>
+										}} src="/components/svg/Break.svg" height="15px" width="15px"/>
 											<span>
 											add break
 											</span>
 											<img style={{
 												position:'relative',marginLeft:'35%',
-											}} src="src/components/svg/Add_White.svg" height="15px" width="15px"/>
+											}} src="/components/svg/Add_White.svg" height="15px" width="15px"/>
 
 											</button>
 
@@ -433,7 +433,7 @@ class App extends Component {
 												//creativity wins!
 												let p = 'Lethal Dreadlifts';
 
-												arr.unshift('<div class="special mostdiv"><img src="src/components/svg/Drag.svg" style="margin-right:30px" height="15px" width="15px"/><b>'+p+'</b><img src="src/components/svg/Delete.svg" onclick="destroyer(event)" style="position:absolute; right:23%" height="15px" width="15px"/></div>');
+												arr.unshift('<div class="special mostdiv"><img src="/components/svg/Drag.svg" style="margin-right:30px" height="15px" width="15px"/><b>'+p+'</b><img src="/components/svg/Delete.svg" onclick="destroyer(event)" style="position:absolute; right:23%" height="15px" width="15px"/></div>');
 
 												console.log(document.getElementsByClassName('dupli'));
 
@@ -591,8 +591,8 @@ App.propTypes = {
 
 //insert break block  <input style="margin-left:30%;width:30px" placeholder="5min" type="number/>
 function addBreak(){
-	<img src="src/components/svg/Break.svg" height="15px" width="15px"/>
-		arr.unshift('<div class="break mostdiv" draggable="true"><img src="src/components/svg/Break.svg" style="margin-right:30px" height="15px" width="15px"/><b>Break</b> 5 min'+'<img src="src/components/svg/Delete.svg" onclick="destroyer(event)" style="position:absolute; right:23%" height="15px" width="15px"/></div>');
+	<img src="/components/svg/Break.svg" height="15px" width="15px"/>
+		arr.unshift('<div class="break mostdiv" draggable="true"><img src="/components/svg/Break.svg" style="margin-right:30px" height="15px" width="15px"/><b>Break</b> 5 min'+'<img src="/components/svg/Delete.svg" onclick="destroyer(event)" style="position:absolute; right:23%" height="15px" width="15px"/></div>');
 		//console.log(arr);
 		document.getElementById('panel').innerHTML = arr.join('');
 	}
@@ -624,7 +624,7 @@ function addBreak(){
 
 						console.log(p);
 
-						arr.unshift('<div class="desc mostdiv" draggable="true"><img src="src/components/svg/Drag.svg" style="margin-right:30px" height="15px" width="15px"/><b>'+record.get('Name')+'</b><img src="src/components/svg/Delete.svg" onclick="destroyer(event)" style="position:absolute; right:23%" height="15px" width="15px"/></div>');
+						arr.unshift('<div class="desc mostdiv" draggable="true"><img src="/components/svg/Drag.svg" style="margin-right:30px" height="15px" width="15px"/><b>'+record.get('Name')+'</b><img src="/components/svg/Delete.svg" onclick="destroyer(event)" style="position:absolute; right:23%" height="15px" width="15px"/></div>');
 						document.getElementById('panel').innerHTML = arr.join('');
 
 
@@ -679,7 +679,7 @@ function addtoColumn(e){
 				// true
 				if (p.match(record.get('Name'))) {
 					console.log(p);
-					arr.unshift('<div class="desc mostdiv" draggable="true" ><img src="src/components/svg/Drag.svg" style="margin-right:30px" height="15px" width="15px"/><b>'+p+'</b><img src="src/components/svg/Delete.svg" onclick="destroyer(event)" style="position:absolute; right:23%" height="15px" width="15px"/></div>');
+					arr.unshift('<div class="desc mostdiv" draggable="true" ><img src="/components/svg/Drag.svg" style="margin-right:30px" height="15px" width="15px"/><b>'+p+'</b><img src="/components/svg/Delete.svg" onclick="destroyer(event)" style="position:absolute; right:23%" height="15px" width="15px"/></div>');
 
 						document.getElementById('panel').innerHTML = arr.join('');
 
