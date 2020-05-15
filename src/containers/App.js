@@ -258,8 +258,8 @@ class App extends Component {
 
 
         return (
-        	<div style={{width:'100%',height:'100%',
-					paddingLeft: '5%', paddingRight:'1%',
+        	<div id="topmain" style={{width:'100%',height:'100%',
+					paddingLeft: '1%', paddingRight:'1%',
 					paddingTop:'5%',left:'0px',top:'0px',
 
 					position:'absolute',
