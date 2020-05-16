@@ -45,17 +45,50 @@ let i = 0;
 });
 
 }
+
 //call grid
 populateGrid();
 
 
-/*add draggable function to desc/Break
-function addsfunction(){
-	document.getElementsByClassName('break').setAttribute()
-	document.getElementsByClassName('desc').setAttribute()
 
+
+
+//load workout as array of exercises // TODO:
+function populateWorkout () {
+	//here
+	let i = 0;
+		base('Workouts').select({
+	    // Selecting the first 3 records in Grid view:
+	    maxRecords: 8,
+	    view: "Grid view",
+			sort:[{field: "Uses", direction: "desc"}]
+	}).eachPage(function page(records, fetchNextPage) {
+	    // This function (`page`) will get called for each page of records.
+
+	    records.forEach(function(record) {
+	      //console.log(i,record.get('Name'),record.get('Photo')[0].url);
+
+				document.getElementById('top'+i).style.backgroundImage = 'url('+record.get('Photo')[0].url+')';
+				document.getElementById('d'+i).innerHTML = '<img src="/components/svg/Drag.svg" style="margin-right:30px" height="15px" width="15px"/><b>'+record.get('Name')+'</b>';
+
+				i++;
+	    });
+
+	    // To fetch the next page of records, call `fetchNextPage`.
+	    // If there are more records, `page` will get called again.
+	    // If there are no more records, `done` will get called.
+	    fetchNextPage();
+
+	}, function done(err) {
+	    if (err) { console.error(err); return; }
+	});
 }
-addsfunction();*/
+
+
+
+
+
+
 
 
 
@@ -93,13 +126,7 @@ class App extends Component {
 		e.preventDefault();
 		console.log(arr);
 		console.log('dragging element:' + y);
-		let p = e.target.style.backgroundColor = 'rgb(240,240,240)';
 
-		if (	p == 'rgb(238,74,100)'){
-		 p = 'rgb(243,243,243)'
-	 }else {
-		 p = 'rgb(238,74,100)';
- }
 	};
 
 
@@ -120,13 +147,11 @@ class App extends Component {
 	onDragOverHover = (e) => {
 
 
-		 let p = e.target.style.backgroundColor = 'rgb(240,240,240)';
 
-		 if (	p == 'rgb(238,74,100)'){
- 			p = 'rgb(243,243,243)'
- 		}else {
- 			p = 'rgb(238,74,100)';
- 	}
+		 e.target.style.backgroundColor = 'rgb(240,240,240)';
+
+
+
 
 		 e.preventDefault();
 
@@ -478,7 +503,7 @@ class App extends Component {
 
 
 
-																	 	arr.unshift('<div class="special mostdiv" onDragStart="onDragStarts(event)" draggable="true"><img src="/components/svg/Drag.svg" style="margin-right:30px" height="15px" width="15px"/><b>'+p+'</b><img src="/components/svg/Delete.svg" onclick="destroyer(event)"  class="destro" height="15px" width="15px"/></div>');
+																	 	arr.unshift('<div class="special mostdiv"  onDragStart="onDragStarts(event)" draggable="true"><img src="/components/svg/Drag.svg" style="margin-right:30px" height="15px" width="15px"/><b>'+p+'</b><img src="/components/svg/Delete.svg" onclick="destroyer(event)"  class="destro" height="15px" width="15px"/></div>');
 																		document.getElementById('panel').innerHTML = arr.join('');
 
 
