@@ -30,7 +30,7 @@ let i = 0;
       //console.log(i,record.get('Name'),record.get('Photo')[0].url);
 
 			document.getElementById('top'+i).style.backgroundImage = 'url('+record.get('Photo')[0].url+')';
-			document.getElementById('d'+i).innerHTML = ''+record.get('Name')+'';
+			document.getElementById('d'+i).innerHTML = record.get('Name');
 
 			i++;
     });
@@ -451,11 +451,11 @@ class App extends Component {
 												//duplication problem, string hardcoded / TODO
 												//creativity wins!
 
-												let p = e.target.innerHTML;
+												let p = event.target.innerHTML;
 												console.log(p);
 														base('Exercises').select({
 																// Selecting the first 3 records in Grid view:
-																maxRecords: 8,
+																maxRecords: 1,
 																view: "Grid view",
 																sort:[{field: "Uses", direction: "desc"}]
 														}).eachPage(function page(records, fetchNextPage) {
@@ -465,7 +465,7 @@ class App extends Component {
 
 
 																	// true
-																	if (p.match(record.get('Name'))) {
+
 																		//fix the duplication on first item ...
 																		 p = record.get('Name');
 
@@ -475,7 +475,7 @@ class App extends Component {
 																		document.getElementById('panel').innerHTML = arr.join('');
 
 
-																	}
+
 
 																});
 
@@ -496,7 +496,7 @@ class App extends Component {
 
 
 											}}
-											><p id="d0"  onDragStart={(e)=>this.onDragStart(e)}  onDragOver={(e)=>this.onDragOver(e)}  className="desc" >
+											><p id="d0" draggable="true" onDragStart={(e)=>this.onDragStart(e)}  onDragOver={(e)=>this.onDragOver(e)}  className="desc" >
 											</p>
 
 											</div>
@@ -506,7 +506,7 @@ class App extends Component {
 											id="top1"
 											onClick={gridtoColumn}
 
-											><p  onDragStart={(e)=>this.onDragStart(e)}  onDragOver={(e)=>this.onDragOver(e)} id="d1" className="desc" >
+											><p draggable="true" onDragStart={(e)=>this.onDragStart(e)}  onDragOver={(e)=>this.onDragOver(e)} id="d1" className="desc" >
 											</p>
 											</div>
 										</div>
@@ -519,7 +519,7 @@ class App extends Component {
 											id="top2"
 											onClick={gridtoColumn}
 
-											><p  onDragStart={(e)=>this.onDragStart(e)}  onDragOver={(e)=>this.onDragOver(e)} id="d2" className="desc" >
+											><p draggable="true" onDragStart={(e)=>this.onDragStart(e)}  onDragOver={(e)=>this.onDragOver(e)} id="d2" className="desc" >
 											</p>
 
 											</div>
@@ -529,7 +529,7 @@ class App extends Component {
 											id="top3"
 											onClick={gridtoColumn}
 
-											><p  onDragStart={(e)=>this.onDragStart(e)}  onDragOver={(e)=>this.onDragOver(e)} id="d3" className="desc" >
+											><p draggable="true" onDragStart={(e)=>this.onDragStart(e)}  onDragOver={(e)=>this.onDragOver(e)} id="d3" className="desc" >
 											</p>
 
 											</div>
@@ -543,7 +543,7 @@ class App extends Component {
 											id="top4"
 											onClick={gridtoColumn}
 
-											><p  onDragStart={(e)=>this.onDragStart(e)}  onDragOver={(e)=>this.onDragOver(e)}  id="d4" className="desc" >
+											><p draggable="true" onDragStart={(e)=>this.onDragStart(e)}  onDragOver={(e)=>this.onDragOver(e)}  id="d4" className="desc" >
 											</p>
 
 											</div>
@@ -553,7 +553,7 @@ class App extends Component {
 											id="top5"
 											onClick={gridtoColumn}
 
-											><p  onDragStart={(e)=>this.onDragStart(e)}  onDragOver={(e)=>this.onDragOver(e)} id="d5" className="desc" >
+											><p draggable="true" onDragStart={(e)=>this.onDragStart(e)}  onDragOver={(e)=>this.onDragOver(e)} id="d5" className="desc" >
 											</p>
 
 											</div>
@@ -567,7 +567,7 @@ class App extends Component {
 											id="top6"
 											onClick={gridtoColumn}
 
-											><p  onDragStart={(e)=>this.onDragStart(e)}  onDragOver={(e)=>this.onDragOver(e)} id="d6" className="desc" >
+											><p draggable="true" onDragStart={(e)=>this.onDragStart(e)}  onDragOver={(e)=>this.onDragOver(e)} id="d6" className="desc" >
 											</p>
 
 											</div>
