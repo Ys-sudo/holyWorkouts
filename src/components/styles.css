@@ -150,7 +150,7 @@ li:hover{
 .image{
   background-color: rgb(120,120,120);
   width: 45%;
-  height: 77px;
+  height: 100px;
   margin: 15px;
   background-position: center, center;
   background-size: cover;
