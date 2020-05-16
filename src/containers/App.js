@@ -14,7 +14,7 @@ import { PropTypes } from 'react';
 var Airtable = require('airtable');
 var base = new Airtable({apiKey: 'keyS3Lg8wS2WMVLBD'}).base('appCUVYjYyYPP2KdR');
 //acces modifier for dropping
-var y;
+
 //display top exercises
 function populateGrid() {
 let i = 0;
@@ -48,6 +48,14 @@ let i = 0;
 //call grid
 populateGrid();
 
+
+/*add draggable function to desc/Break
+function addsfunction(){
+	document.getElementsByClassName('break').setAttribute()
+	document.getElementsByClassName('desc').setAttribute()
+
+}
+addsfunction();*/
 
 
 
@@ -626,7 +634,7 @@ function addBreak(){
 
 						console.log(p);
 
-						arr.unshift('<div class="desc mostdiv" draggable="true"><img src="/components/svg/Drag.svg" style="margin-right:30px" height="15px" width="15px"/><b>'+record.get('Name')+'</b><img src="/components/svg/Delete.svg" onclick="destroyer(event)"  class="destro" height="15px" width="15px"/></div>');
+						arr.unshift('<div class="desc mostdiv" onDragStart="onDragStarts(event)" draggable="true"><img src="/components/svg/Drag.svg" style="margin-right:30px" height="15px" width="15px"/><b>'+record.get('Name')+'</b><img src="/components/svg/Delete.svg" onclick="destroyer(event)"  class="destro" height="15px" width="15px"/></div>');
 						document.getElementById('panel').innerHTML = arr.join('');
 
 

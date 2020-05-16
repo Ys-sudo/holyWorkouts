@@ -58,6 +58,25 @@
         <script type="text/javascript">
 
         let arr = [];
+        var y;
+
+        function onDragStarts(event){
+
+      		let p = event.target.closest('div').outerHTML;
+          y = p;
+
+          let index = arr.indexOf(event.target.closest('div').innerHTML);
+
+
+
+
+
+      		console.log('drag' + index);
+          return y;
+          console.log(y);
+
+      	};
+
 
         function destroyer(event){
         event.preventDefault();

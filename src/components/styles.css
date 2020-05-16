@@ -74,7 +74,7 @@ input {
     background-color: rgba(20,20,20,0.8);
     border-radius: 10px;
     margin: 5px;
-    cursor: url(svg/Add_White.svg) 10 10, auto;
+    cursor: url(svg/Add_Blue.svg) 10 10, auto;
 
 
 }
@@ -174,11 +174,15 @@ li:hover{
 }
 .destro{
   position: absolute;
-  right:17%;
+  right:15%;
+  cursor: pointer;
 }
 @media screen and (max-width: 1100px) {
   #mainholder {
     display: block;
+  }
+  #panel{
+    margin-left: -2% !important;
   }
   #save, #start, #cleaningservice, #how, #home{
     color: rgb(240,240,240);
@@ -206,9 +210,6 @@ li:hover{
   }
   .destro{
     position: absolute;
-    right:25%;
-  }
-  #panel{
-    margin-left: -2% !important;
+    right:23%;
   }
 }
