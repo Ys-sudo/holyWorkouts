@@ -30,7 +30,7 @@ let i = 0;
       //console.log(i,record.get('Name'),record.get('Photo')[0].url);
 
 			document.getElementById('top'+i).style.backgroundImage = 'url('+record.get('Photo')[0].url+')';
-			document.getElementById('d'+i).innerHTML = record.get('Name');
+			document.getElementById('d'+i).innerHTML = '<img src="/components/svg/Drag.svg" style="margin-right:30px" height="15px" width="15px"/><b>'+record.get('Name')+'</b>';
 
 			i++;
     });
@@ -72,7 +72,7 @@ class App extends Component {
 		e.preventDefault();
 		console.log(y);
 
-		arr.unshift('<div><b style="padding-left:30px">'+ y + '</b></div>');
+		arr.unshift('<div><b>'+ y + '</b></div>');
 
 
 		if (	document.getElementById('panel').style.backgroundColor == 'rgb(238,74,100)'){
@@ -93,6 +93,13 @@ class App extends Component {
 		e.preventDefault();
 		console.log(arr);
 		console.log('dragging element:' + y);
+		let p = e.target.style.backgroundColor = 'rgb(240,240,240)';
+
+		if (	p == 'rgb(238,74,100)'){
+		 p = 'rgb(243,243,243)'
+	 }else {
+		 p = 'rgb(238,74,100)';
+ }
 	};
 
 
@@ -734,7 +741,7 @@ function addtoColumn(e){
 				// true
 				if (p.match(record.get('Name'))) {
 					console.log(p);
-					arr.unshift('<div class="desc mostdiv" ondragstart="onDragStarts(event)" draggable="true" ><img src="/components/svg/Drag.svg" style="margin-right:30px" height="15px" width="15px"/><b>'+p+'</b><img src="/components/svg/Delete.svg" onclick="destroyer(event)"  class="destro" height="15px" width="15px"/></div>');
+					arr.unshift('<div class="desc mostdiv" ondragstart="onDragStarts(event)" draggable="true" ><img src="/components/svg/Drag.svg" style="margin-right:30px" height="15px" width="15px"/><b>'+record.get('Name')+'</b><img src="/components/svg/Delete.svg" onclick="destroyer(event)"  class="destro" height="15px" width="15px"/></div>');
 
 						document.getElementById('panel').innerHTML = arr.join('');
 
