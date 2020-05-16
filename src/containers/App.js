@@ -918,12 +918,46 @@ if (running==true){
  	};
  };
 
-
+//for name : document.getElementsByTagName('input')[0].value
 	function populateBase(){
 		//here goes save to base code - coming soon
-		alert('Coming Soon 🤸')
-	}
+		let x = prompt('🤸 input workout name:');
+		if (x != null && undefined){
+		base('Workout').create([
+  {
+    "fields": {
+      "Name": prompt('🤸 input workout name:'),
+      "Link to Exercises": [
+        "recbyGyaHD2zAlgHu",
+        "recE8aHgqqWguo8jV",
+        "recnwHKLLxDQqshXg",
+        "rec61WLKFHOjGrxVx",
+        "recvfBCVZV3TFYnnG"
+      ],
+      "Duration": 35,
+      "Exercises": [
+        "1 - Lethal Dreadlifts",
+        "2 - Break",
+        "3 - Jumping Jacks",
+        "4 - Reverse Lifts",
+        "5 - Break",
+        "6 - Push ups with rotation"
+      ]
+    }
+  }
+], function(err, records) {
+  if (err) {
+    console.error(err);
+    return;
+  }
+  records.forEach(function (record) {
+    console.log(record.getId());
+  });
+});
 
+
+	}
+}
 
 	function nightDay(){
 		//here goes save to base code - coming soon
