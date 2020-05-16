@@ -54,24 +54,32 @@ populateGrid();
 
 
 //load workout as array of exercises // TODO:
-function populateWorkout () {
+function populateWorkout (e) {
 	//here
+	let x = e.target.innerHTML;
+	console.log(e);
 	let i = 0;
-		base('Workouts').select({
+		base('Workout').select({
 	    // Selecting the first 3 records in Grid view:
-	    maxRecords: 8,
+
 	    view: "Grid view",
-			sort:[{field: "Uses", direction: "desc"}]
+
 	}).eachPage(function page(records, fetchNextPage) {
 	    // This function (`page`) will get called for each page of records.
 
 	    records.forEach(function(record) {
 	      //console.log(i,record.get('Name'),record.get('Photo')[0].url);
 
-				document.getElementById('top'+i).style.backgroundImage = 'url('+record.get('Photo')[0].url+')';
-				document.getElementById('d'+i).innerHTML = '<img src="/components/svg/Drag.svg" style="margin-right:30px" height="15px" width="15px"/><b>'+record.get('Name')+'</b>';
-
 				i++;
+
+				//console.log(record.get('Exercises')[i]);
+				if(record.get('Exercises')[i]!==undefined){
+
+				//document.getElementById('d'+i).innerHTML = '<img src="/components/svg/Drag.svg" style="margin-right:30px" height="15px" width="15px"/><b>'+record.get('Name')+'</b>';
+				arr.push('<div class="mostdiv desc"><img src="/components/svg/Drag.svg" style="margin-right:30px" height="15px" width="15px"/><b>'+record.get('Exercises')[i]+'</b><img src="/components/svg/Delete.svg" onclick="destroyer(event)"  class="destro" height="15px" width="15px"/></div>');
+				document.getElementById('panel').innerHTML = arr.join('');
+			}
+
 	    });
 
 	    // To fetch the next page of records, call `fetchNextPage`.
@@ -147,15 +155,15 @@ class App extends Component {
 	onDragOverHover = (e) => {
 
 
-
+		let p = e.target.closest('div').outerHTML;
 		 e.target.style.backgroundColor = 'rgb(240,240,240)';
-
+		 console.log(p);
 
 
 
 		 e.preventDefault();
 
-		console.log('drag' + y);
+	//	console.log('drag' + y);
 	};
 
 
@@ -196,13 +204,22 @@ class App extends Component {
 										records.forEach(function(record) {
 
 
-										// only first char check - can be developed
-											if (value.charAt(0).toUpperCase().match(record.get('Name').charAt(0))){
+											// true
+											if (value.charAt(0).toUpperCase().match(record.get('Name').charAt(0))) {
 
-												var text = '<li>'+record.get('Name') + '</li>' ;
-
+												var text = record.get('Name');
 												array.push(text);
-												document.getElementById('dropdown').innerHTML = array.join('');
+												const listItems = array.map((text) =>
+													<li onClick={populateWorkout} key={text}>{text}</li>);
+
+													ReactDOM.render(
+														<ul style={{textAlign:'left'}}>{listItems}</ul>,
+														document.getElementById('dropdown')
+													);
+
+
+
+											//document.getElementById('dropdown2').innerHTML = 	array.join('');
 											}
 
 										});
