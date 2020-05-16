@@ -34,7 +34,7 @@
 
         <link rel="shortcut icon" href="https://scontent.fath3-3.fna.fbcdn.net/v/t1.0-9/64545806_2655277794499757_5837268830560190464_n.png?_nc_cat=104&_nc_sid=85a577&_nc_eui2=AeHfcy6Fgm77OqLq5x9u10EIU_V0sYJkm_xT9XSxgmSb_Jv9Wj0uHPqEElW13TkZNc5HX_cEsDdWBboyNr_hvuVg&_nc_ohc=cgM_zys4X2oAX_u7X0c&_nc_ht=scontent.fath3-3.fna&oh=06237fdd46392dd9311bc9d1dadee4dc&oe=5EE508BA">
 
-        <link rel="stylesheet" type="text/css" href="/styles.css">
+        <link rel="stylesheet" type="text/css" href="/components/styles.css">
 
 
 
@@ -64,7 +64,13 @@
       		console.log(event.target.closest('div'));
 
           event.target.closest('div').outerHTML = ' ';
-
+          let index = arr.indexOf(event.target.closest('div').innerHTML);
+          console.log(index);
+          if (index >= -1) {
+          arr.splice(index, 1);
+          return arr;
+          console.log(arr);
+          }
 
       	}
 
