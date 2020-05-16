@@ -193,8 +193,8 @@ class App extends Component {
 				debounce(
 									//workout exercises database
 								base('Workout').select({
-										// Selecting the first 3 records in Grid view:
-										maxRecords: 5,
+										// Selecting the first 100 records in Grid view:
+										maxRecords: 100,
 										view: "Grid view",
 										//sort by uses - TODO
 										//sort:[{field: "Uses", direction: "desc"}]
@@ -918,15 +918,20 @@ if (running==true){
  	};
  };
 
-//for name : document.getElementsByTagName('input')[0].value
+//for name :
 	function populateBase(){
 		//here goes save to base code - coming soon
-		let x = prompt('🤸 input workout name:');
-		if (x != null && undefined){
+		let x = document.getElementsByTagName('input')[0].value;
+
+
+
+
+		if ((x !== null )&& (x !== undefined )&& (x !== '')){
+
 		base('Workout').create([
   {
     "fields": {
-      "Name": prompt('🤸 input workout name:'),
+      "Name": (document.getElementsByTagName('input')[0].value).replace(document.getElementsByTagName('input')[0].value.charAt(0),document.getElementsByTagName('input')[0].value.charAt(0).toUpperCase()),
       "Link to Exercises": [
         "recbyGyaHD2zAlgHu",
         "recE8aHgqqWguo8jV",
@@ -954,9 +959,12 @@ if (running==true){
     console.log(record.getId());
   });
 });
+alert('saved!');
 
+} else { alert('🤸 input workout name please!');
+document.getElementById("workouts").focus();
 
-	}
+}
 }
 
 	function nightDay(){
