@@ -85,13 +85,14 @@ class App extends Component {
 		document.getElementById('panel').innerHTML = arr.join('');
 
 		console.log('drop'+y);
+
 	};
 
 
 	onDragOver = (e) => {
 		e.preventDefault();
-
-		console.log('drag' + y);
+		console.log(arr);
+		console.log('dragging element:' + y);
 	};
 
 
@@ -111,7 +112,15 @@ class App extends Component {
 
 	onDragOverHover = (e) => {
 
+
 		 let p = e.target.style.backgroundColor = 'rgb(240,240,240)';
+
+		 if (	p == 'rgb(238,74,100)'){
+ 			p = 'rgb(243,243,243)'
+ 		}else {
+ 			p = 'rgb(238,74,100)';
+ 	}
+
 		 e.preventDefault();
 
 		console.log('drag' + y);
@@ -441,15 +450,51 @@ class App extends Component {
 												// i don't know why yet but it fixes the
 												//duplication problem, string hardcoded / TODO
 												//creativity wins!
-												let p = 'Lethal Dreadlifts x 40';
 
-												arr.unshift('<div class="special mostdiv" onDragStart="onDragStarts(event)" draggable="true"><img src="/components/svg/Drag.svg" style="margin-right:30px" height="15px" width="15px"/><b>'+p+'</b><img src="/components/svg/Delete.svg" onclick="destroyer(event)"  class="destro" height="15px" width="15px"/></div>');
+												let p = e.target.innerHTML;
+												console.log(p);
+														base('Exercises').select({
+																// Selecting the first 3 records in Grid view:
+																maxRecords: 8,
+																view: "Grid view",
+																sort:[{field: "Uses", direction: "desc"}]
+														}).eachPage(function page(records, fetchNextPage) {
+																// This function (`page`) will get called for each page of records.
 
-												console.log(document.getElementsByClassName('dupli'));
+																records.forEach(function(record) {
+
+
+																	// true
+																	if (p.match(record.get('Name'))) {
+																		//fix the duplication on first item ...
+																		 p = record.get('Name');
+
+
+
+																	 	arr.unshift('<div class="special mostdiv" onDragStart="onDragStarts(event)" draggable="true"><img src="/components/svg/Drag.svg" style="margin-right:30px" height="15px" width="15px"/><b>'+p+'</b><img src="/components/svg/Delete.svg" onclick="destroyer(event)"  class="destro" height="15px" width="15px"/></div>');
+																		document.getElementById('panel').innerHTML = arr.join('');
+
+
+																	}
+
+																});
+
+																// To fetch the next page of records, call `fetchNextPage`.
+																// If there are more records, `page` will get called again.
+																// If there are no more records, `done` will get called.
+																fetchNextPage();
+
+														}, function done(err) {
+																if (err) { console.error(err); return; }
+														})
+
+
+
+
 
 												console.log(p);
 
-												document.getElementById('panel').innerHTML = arr.join('');
+
 											}}
 											><p id="d0" draggable="true" onDragStart={(e)=>this.onDragStart(e)}  onDragOver={(e)=>this.onDragOver(e)}  className="desc" >
 											</p>
@@ -689,7 +734,7 @@ function addtoColumn(e){
 				// true
 				if (p.match(record.get('Name'))) {
 					console.log(p);
-					arr.unshift('<div class="desc mostdiv" draggable="true" ><img src="/components/svg/Drag.svg" style="margin-right:30px" height="15px" width="15px"/><b>'+p+'</b><img src="/components/svg/Delete.svg" onclick="destroyer(event)"  class="destro" height="15px" width="15px"/></div>');
+					arr.unshift('<div class="desc mostdiv" ondragstart="onDragStarts(event)" draggable="true" ><img src="/components/svg/Drag.svg" style="margin-right:30px" height="15px" width="15px"/><b>'+p+'</b><img src="/components/svg/Delete.svg" onclick="destroyer(event)"  class="destro" height="15px" width="15px"/></div>');
 
 						document.getElementById('panel').innerHTML = arr.join('');
 
