@@ -77,7 +77,7 @@ function populateWorkout (e) {
 				if(record.get('Exercises')[i]!==undefined){
 
 				//document.getElementById('d'+i).innerHTML = '<img src="/components/svg/Drag.svg" style="margin-right:30px" height="15px" width="15px"/><b>'+record.get('Name')+'</b>';
-				arr.push('<div class="mostdiv desc" draggable="true" ondragstart="onDragStarts(event)"><img src="/components/svg/Drag.svg" style="margin-right:30px" height="15px" width="15px"/><b>'+record.get('Exercises')[i]+'</b><img src="/components/svg/Delete.svg" onclick="destroyer(event)"  class="destro" height="15px" width="15px"/></div>');
+				arr.unshift('<div class="mostdiv desc" draggable="true" ondragstart="onDragStarts(event)"><img src="/components/svg/Drag.svg" style="margin-right:30px" height="15px" width="15px"/><b>'+record.get('Exercises')[i]+'</b><img src="/components/svg/Delete.svg" onclick="destroyer(event)"  class="destro" height="15px" width="15px"/></div>');
 				document.getElementById('panel').innerHTML = arr.join('');
 			}
 
