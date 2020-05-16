@@ -28,11 +28,12 @@ let i = 0;
 
     records.forEach(function(record) {
       //console.log(i,record.get('Name'),record.get('Photo')[0].url);
-
+			if(document.getElementById('top'+i)!==null){
 			document.getElementById('top'+i).style.backgroundImage = 'url('+record.get('Photo')[0].url+')';
 			document.getElementById('d'+i).innerHTML = '<img src="/components/svg/Drag.svg" style="margin-right:30px" height="15px" width="15px"/><b>'+record.get('Name')+'</b>';
 
 			i++;
+		}
     });
 
     // To fetch the next page of records, call `fetchNextPage`.
@@ -213,7 +214,7 @@ class App extends Component {
 													<li onClick={populateWorkout} key={text}>{text}</li>);
 
 													ReactDOM.render(
-														<ul style={{textAlign:'left'}}>{listItems}</ul>,
+														<ul style={{textAlign:'left',marginLeft:'-30px'}}>{listItems}</ul>,
 														document.getElementById('dropdown')
 													);
 
@@ -324,7 +325,7 @@ class App extends Component {
 
 
         return (
-        	<div id="topmain" style={{width:'100%',height:'100%',
+        	<div id="topmain" onLoad={populateGrid} style={{width:'100%',height:'100%',
 					paddingLeft: '1%', paddingRight:'1%',
 					paddingTop:'5%',left:'0px',top:'0px',
 
@@ -349,13 +350,13 @@ class App extends Component {
 								 <img src="/components/svg/github.svg" height="15px" width="15px" />
 								 </a>
 
-								 {/*
+
 								 <a href="/Howto">
  										<button className="mostdiv" style={{position:'fixed',right:'15%',top:'1%',fontSize:'10px',padding:'5px'}} id="how">how to use ?</button>
  								</a>
 
 
-
+								{/*
 										<button onClick={nightDay} className="mostdiv" style={{position:'fixed',right:'21%',top:'1%',fontSize:'10px',padding:'5px'}} id="night">dark mode</button>
 										*/}
 									<hr />
