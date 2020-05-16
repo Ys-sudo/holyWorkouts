@@ -2,7 +2,10 @@
 The workout app test for holy.
 Created in 3 days of sprint based on the resources and my awesome coding skills.
 
-Now i need 3 days of chill :-)
+Now i need 3 days of chill coding is really exhausting :-)
+I will be fixing and developing the project until Monday.
+I find it a really cool idea for a test, maybe we can finish this nicely
+and release it together.
 
 react.js / node.js
 
@@ -19,14 +22,14 @@ npm install
 
 yarn
 
-npm run dev
+npm run dev  
 
 npm run build
 
 
 ```
 
-for build you need a node.js sever.
+for build you need a node.js server.
 for dev the preview is live at: **localhost:8080** in your browser.
 
 
