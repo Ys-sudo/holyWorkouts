@@ -352,7 +352,7 @@ class App extends Component {
 
 
 								 <a href="/Howto">
- 										<button className="mostdiv" style={{position:'fixed',right:'15%',top:'1%',fontSize:'10px',padding:'5px'}} id="how">how to use ?</button>
+ 										<button className="mostdiv" style={{position:'fixed',right:'2%',bottom:'1%',fontSize:'10px',padding:'5px'}} id="how">how to use ?</button>
  								</a>
 
 
