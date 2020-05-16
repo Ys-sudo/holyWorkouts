@@ -72,13 +72,13 @@ class App extends Component {
 		e.preventDefault();
 		console.log(y);
 
-		arr.unshift('<div><img src="/components/svg/Drag.svg" style="position:absolute;right:30%;margin-top:30px" height="15px" width="15px"/><b style="padding-left:30px">'+ y + '</b><img src="/components/svg/Delete.svg" onclick="destroyer(event)" style="position:absolute;margin-top:-30px; right:23%" class="destro" height="15px" width="15px"/></div>');
+		arr.unshift('<div><b style="padding-left:30px">'+ y + '</b></div>');
 
 
-		if (e.target.style.backgroundColor == 'rgb(238,74,100)'){
-			e.target.style.backgroundColor = 'rgb(243,243,243)'
+		if (	document.getElementById('panel').style.backgroundColor == 'rgb(238,74,100)'){
+				document.getElementById('panel').style.backgroundColor = 'rgb(243,243,243)'
 		}else {
-		e.target.style.backgroundColor = 'rgb(238,74,100)';
+			document.getElementById('panel').style.backgroundColor = 'rgb(238,74,100)';
 	}
 
 
@@ -443,7 +443,7 @@ class App extends Component {
 												//creativity wins!
 												let p = 'Lethal Dreadlifts x 40';
 
-												arr.unshift('<div class="special mostdiv"><img src="/components/svg/Drag.svg" style="margin-right:30px" height="15px" width="15px"/><b>'+p+'</b><img src="/components/svg/Delete.svg" onclick="destroyer(event)"  class="destro" height="15px" width="15px"/></div>');
+												arr.unshift('<div class="special mostdiv" onDragStart="onDragStarts(event)" draggable="true"><img src="/components/svg/Drag.svg" style="margin-right:30px" height="15px" width="15px"/><b>'+p+'</b><img src="/components/svg/Delete.svg" onclick="destroyer(event)"  class="destro" height="15px" width="15px"/></div>');
 
 												console.log(document.getElementsByClassName('dupli'));
 
