@@ -75,9 +75,14 @@ function populateWorkout (e) {
 
 				//console.log(record.get('Exercises')[i]);
 				if(record.get('Exercises')[i]!==undefined){
+				let x = record.get('Exercises')[i];
+				let y = record.get('Duration');
+				console.log(record.get('Duration'));
+				console.log(x);
+
 
 				//document.getElementById('d'+i).innerHTML = '<img src="/components/svg/Drag.svg" style="margin-right:30px" height="15px" width="15px"/><b>'+record.get('Name')+'</b>';
-				arr.unshift('<div class="mostdiv desc" draggable="true" ondragstart="onDragStarts(event)"><img src="/components/svg/Drag.svg" style="margin-right:30px" height="15px" width="15px"/><b>'+record.get('Exercises')[i]+'</b><img src="/components/svg/Delete.svg" onclick="destroyer(event)"  class="destro" height="15px" width="15px"/></div>');
+				arr.unshift('<div class="mostdiv desc" draggable="true" ondragstart="onDragStarts(event)"><img src="/components/svg/Drag.svg" style="margin-right:30px" height="15px" width="15px"/><b>'+record.get('Exercises')[i]+'</b><img src="/components/svg/Delete.svg" onclick="destroyer(event)"  class="destro" height="15px" width="15px"/>'+' -  '+y+'s</div>');
 				document.getElementById('panel').innerHTML = arr.join('');
 			}
 
@@ -518,12 +523,14 @@ class App extends Component {
 
 																		//fix the duplication on first item ...
 																		 p = record.get('Name');
+																		 let x = record.get('Sets');
+																	 	let y = record.get('Duration');
+																	 	console.log(x);
+																	 	console.log(y);
+																	 	console.log(p);
 
-
-
-																	 	arr.unshift('<div class="special mostdiv"  onDragStart="onDragStarts(event)" draggable="true"><img src="/components/svg/Drag.svg" style="margin-right:30px" height="15px" width="15px"/><b>'+p+'</b><img src="/components/svg/Delete.svg" onclick="destroyer(event)"  class="destro" height="15px" width="15px"/></div>');
-																		document.getElementById('panel').innerHTML = arr.join('');
-
+																	 	arr.unshift('<div class="special mostdiv" onDragStart="onDragStarts(event)" draggable="true"><img src="/components/svg/Drag.svg" style="margin-right:30px" height="15px" width="15px"/><b>'+x+ ' - '+record.get('Name')+'</b>'+' - '+y+'<img src="/components/svg/Delete.svg" onclick="destroyer(event)"  class="destro" height="15px" width="15px"/></div>');
+																	 	document.getElementById('panel').innerHTML = arr.join('');
 
 
 
@@ -726,10 +733,13 @@ function addBreak(){
 					if (p.match(record.get('Name'))) {
 						//fix the duplication on first item ...
 
-
+						let x = record.get('Sets');
+						let y = record.get('Duration');
+						console.log(x);
+						console.log(y);
 						console.log(p);
 
-						arr.unshift('<div class="desc mostdiv" onDragStart="onDragStarts(event)" draggable="true"><img src="/components/svg/Drag.svg" style="margin-right:30px" height="15px" width="15px"/><b>'+record.get('Name')+'</b><img src="/components/svg/Delete.svg" onclick="destroyer(event)"  class="destro" height="15px" width="15px"/></div>');
+						arr.unshift('<div class="desc mostdiv" onDragStart="onDragStarts(event)" draggable="true"><img src="/components/svg/Drag.svg" style="margin-right:30px" height="15px" width="15px"/><b>'+x+ ' - '+record.get('Name')+'</b>'+' - '+y+'<img src="/components/svg/Delete.svg" onclick="destroyer(event)"  class="destro" height="15px" width="15px"/></div>');
 						document.getElementById('panel').innerHTML = arr.join('');
 
 
@@ -783,11 +793,14 @@ function addtoColumn(e){
 
 				// true
 				if (p.match(record.get('Name'))) {
+					let x = record.get('Sets');
+					let y = record.get('Duration');
+					console.log(x);
+					console.log(y);
 					console.log(p);
-					arr.unshift('<div class="desc mostdiv" ondragstart="onDragStarts(event)" draggable="true" ><img src="/components/svg/Drag.svg" style="margin-right:30px" height="15px" width="15px"/><b>'+record.get('Name')+'</b><img src="/components/svg/Delete.svg" onclick="destroyer(event)"  class="destro" height="15px" width="15px"/></div>');
 
-						document.getElementById('panel').innerHTML = arr.join('');
-
+					arr.unshift('<div class="desc mostdiv" onDragStart="onDragStarts(event)" draggable="true"><img src="/components/svg/Drag.svg" style="margin-right:30px" height="15px" width="15px"/><b>'+x+ ' - '+record.get('Name')+'</b>'+' - '+y+'<img src="/components/svg/Delete.svg" onclick="destroyer(event)"  class="destro" height="15px" width="15px"/></div>');
+					document.getElementById('panel').innerHTML = arr.join('');
 
 
 
@@ -928,7 +941,7 @@ if (running==true){
 
 
 		if ((x !== null )&& (x !== undefined )&& (x !== '')){
-
+			//TODO - improve saving algorithm
 		base('Workout').create([
   {
     "fields": {
