@@ -440,7 +440,7 @@ class App extends Component {
 
 								<div
 								style={{width:'90%',
-								backgroundColor:'rgb(222,222,222)',
+								backgroundColor:'rgb(255,255,250)',
 								borderRadius:'20px',
 								margin:'1.5%',padding:'1%',marginLeft:'-2%',textAlign:'center'}}
 								className="mostdiv"
