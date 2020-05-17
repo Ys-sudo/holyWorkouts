@@ -11,8 +11,7 @@ Updated from Friday 15.05 up to 17.05 1:06.
 Make sure you clear the browser cache and
 refresh the page a couple of times.
 
-Only the saving algorithm needs some work still (find the values in the array - move them into a new array of strings, append to DB), and some corrections are to be done to dragging (for now it clones the selected item and unshifts it), the rest works as expected. You can load the workout or the exercise from the search, add id from top exercises, unshift the array, save the workout with naming convention mapping. There is also
-a timer, and a clear button. Everything works smoothly and no crashes are expected.
+Only the saving algorithm needs some work still (find the values in the array - move them into a new array of strings, append to DB), and some corrections are to be done to dragging (for now it clones the selected item and unshifts it), the rest works as expected. You can load the workout or the exercise from the search, add it from top exercises, unshift the array, save the workout with naming convention mapping. There is also a timer, and a clear button. Everything works smoothly and no crashes are expected.
 
 I find it a really cool idea for a test, maybe we can finish this nicely
 and release it together. Seems like a great idea for an app!
