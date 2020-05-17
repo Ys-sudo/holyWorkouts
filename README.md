@@ -1,5 +1,9 @@
 # holyWorkouts App
 
+live prewiev:
+https://holyWorkouts.netlify.app
+
+
 ## The workout app test for holy.
 Created in 5 days, based on the resources provided,
 3 - days for the main structure and 2 for development and corrections.
