@@ -687,7 +687,7 @@ class App extends Component {
 								>
 
 								</div>
-									<input id="hiddeninput" style={{visibility:'hidden'}}/>
+									<input id="hiddeninput" style={{display:'none'}}/>
 
 
 
