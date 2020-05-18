@@ -68,23 +68,30 @@ function populateWorkout (e) {
 	}).eachPage(function page(records, fetchNextPage) {
 	    // This function (`page`) will get called for each page of records.
 
+
+			i++;
+
+
+
 	    records.forEach(function(record) {
 	      //console.log(i,record.get('Name'),record.get('Photo')[0].url);
-
-				i++;
+				let x = record.get('Exercises')[i];
+				let y = record.get('Duration');
 
 				//console.log(record.get('Exercises')[i]);
 				if(record.get('Exercises')[i]!==undefined){
-				let x = record.get('Exercises')[i];
-				let y = record.get('Duration');
+
+
 				console.log(record.get('Duration'));
 				console.log(x);
 
 
 				//document.getElementById('d'+i).innerHTML = '<img src="/components/svg/Drag.svg" style="margin-right:30px" height="15px" width="15px"/><b>'+record.get('Name')+'</b>';
-				arr.unshift('<div class="mostdiv desc" draggable="true" ondragstart="onDragStarts(event)"><img src="/components/svg/Drag.svg" style="margin-right:30px" height="15px" width="15px"/><b>'+record.get('Exercises')[i]+'</b><img src="/components/svg/Delete.svg" onclick="destroyer(event)"  class="destro" height="15px" width="15px"/>'+' -  '+y+'s</div>');
-				document.getElementById('panel').innerHTML = arr.join('');
+
 			}
+
+			arr.unshift('<div class="mostdiv desc" draggable="true" ondragstart="onDragStarts(event)"><img src="/components/svg/Drag.svg" style="margin-right:30px" height="15px" width="15px"/><b>'+x+'</b><img src="/components/svg/Delete.svg" onclick="destroyer(event)"  class="destro" height="15px" width="15px"/>'+' -  '+y+'s</div>');
+			document.getElementById('panel').innerHTML = arr.join('');
 
 	    });
 
@@ -207,16 +214,18 @@ class App extends Component {
 								}).eachPage(function page(records, fetchNextPage) {
 										// This function (`page`) will get called for each page of records.
 										array = [];
+
 										records.forEach(function(record) {
 
 
 											// true
 											if (value.charAt(0).toUpperCase().match(record.get('Name').charAt(0))) {
 
-												var text = record.get('Name');
-												array.push(text);
-												const listItems = array.map((text) =>
-													<li onClick={populateWorkout} key={text}>{text}</li>);
+												var txt = record.get('Name');
+
+												array.push(txt);
+												const listItems = array.map((txt) =>
+													<li onClick={populateWorkout} key={txt}>{txt}</li>);
 
 													ReactDOM.render(
 														<ul style={{textAlign:'left',marginLeft:'-30px'}}>{listItems}</ul>,
@@ -502,8 +511,8 @@ class App extends Component {
 
 											id="top0"
 											onClick={(e) => {
-												// i don't know why yet but it fixes the
-												//duplication problem, string hardcoded / TODO
+												// - migrate methods to REACT DOM for improved performance
+												//arrow function solves the duplication problem,
 												//creativity wins!
 
 												let p = event.target.innerHTML;
@@ -521,7 +530,7 @@ class App extends Component {
 
 																	// true
 
-																		//fix the duplication on first item ...
+
 																		 p = record.get('Name');
 																		 let x = record.get('Sets');
 																	 	let y = record.get('Duration');
@@ -730,8 +739,11 @@ function addBreak(){
 
 
 					// true
+
 					if (p.match(record.get('Name'))) {
 						//fix the duplication on first item ...
+						//match exact with reg exp
+
 
 						let x = record.get('Sets');
 						let y = record.get('Duration');
@@ -782,7 +794,7 @@ function addtoColumn(e){
 	let p = e.target.innerHTML;
 
 	base('Exercises').select({
-			// Selecting the first 3 records in Grid view:
+			// Selecting the number of records in Grid view:
 			maxRecords: 26,
 			view: "Grid view"
 	}).eachPage(function page(records, fetchNextPage) {
@@ -791,16 +803,28 @@ function addtoColumn(e){
 			records.forEach(function(record) {
 
 
-				// true
+
+
 				if (p.match(record.get('Name'))) {
+
 					let x = record.get('Sets');
 					let y = record.get('Duration');
 					console.log(x);
 					console.log(y);
 					console.log(p);
 
+					// fix dupli bug - TODO
+
+
+
+
+
 					arr.unshift('<div class="desc mostdiv" onDragStart="onDragStarts(event)" draggable="true"><img src="/components/svg/Drag.svg" style="margin-right:30px" height="15px" width="15px"/><b>'+x+ ' - '+record.get('Name')+'</b>'+' - '+y+'<img src="/components/svg/Delete.svg" onclick="destroyer(event)"  class="destro" height="15px" width="15px"/></div>');
+
+
 					document.getElementById('panel').innerHTML = arr.join('');
+
+
 
 
 
@@ -953,14 +977,11 @@ if (running==true){
         "rec61WLKFHOjGrxVx",
         "recvfBCVZV3TFYnnG"
       ],
-      "Duration": 35,
+      "Duration": 35, // bind time value here and decode innerHTML array TODO
       "Exercises": [
         "1 - Lethal Dreadlifts",
         "2 - Break",
-        "3 - Jumping Jacks",
-        "4 - Reverse Lifts",
-        "5 - Break",
-        "6 - Push ups with rotation"
+
       ]
     }
   }
