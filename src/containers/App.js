@@ -687,6 +687,7 @@ class App extends Component {
 								>
 
 								</div>
+									<input id="hiddeninput" style={{visibility:'hidden'}}/>
 
 
 
@@ -960,29 +961,82 @@ if (running==true){
 	function populateBase(){
 		//here goes save to base code - coming soon
 		let x = document.getElementsByTagName('input')[0].value;
+		let i = 0;
+		var getbackEx;
+		//console.log(arr);
+		let newExArr = [];
+		let finExArr = [];
+
+		console.log(document.getElementById('panel').innerHTML);
+
+		base('Exercises').select({
+				// Selecting the first 3 records in Grid view:
+				maxRecords: 8,
+				view: "Grid view",
+				sort:[{field: "Uses", direction: "desc"}]
+		}).eachPage(function page(records, fetchNextPage) {
 
 
 
+
+
+
+
+
+		arr.forEach(function(getbackEx){
+
+			if(arr[i] !== undefined){
+			getbackEx = arr[i].innerHTML;
+			i++;
+
+
+
+
+			//console.log(newExArr.push(document.getElementsByTagName('b')[i+10].innerHTML));
+
+			newExArr.push(document.getElementsByTagName('b')[i+11].innerHTML);
+			//return newExArr;
+
+
+
+			}
+
+		});
+for (let o=0;o<newExArr.length;o++){
+		console.log(JSON.stringify(newExArr[o]));
+
+
+}
+finExArr = JSON.stringify(newExArr);
+console.log(JSON.stringify(newExArr));
+document.getElementById('hiddeninput').value = finExArr;
+console.log(document.getElementById('hiddeninput').value.substring(1, document.getElementById('hiddeninput').value.length - 1));
+finExArr = document.getElementById('hiddeninput').value.substring(1, document.getElementById('hiddeninput').value.length - 1);
+
+document.getElementById('hiddeninput').value = finExArr;
+
+
+
+	});
 
 		if ((x !== null )&& (x !== undefined )&& (x !== '')){
 			//TODO - improve saving algorithm
+
+
+
 		base('Workout').create([
   {
     "fields": {
       "Name": (document.getElementsByTagName('input')[0].value).replace(document.getElementsByTagName('input')[0].value.charAt(0),document.getElementsByTagName('input')[0].value.charAt(0).toUpperCase()),
       "Link to Exercises": [
-        "recbyGyaHD2zAlgHu",
-        "recE8aHgqqWguo8jV",
-        "recnwHKLLxDQqshXg",
-        "rec61WLKFHOjGrxVx",
-        "recvfBCVZV3TFYnnG"
+        "recbyGyaHD2zAlgHu", //idk what this is for?
+        "recE8aHgqqWguo8jV"
+
       ],
       "Duration": 35, // bind time value here and decode innerHTML array TODO
       "Exercises": [
-        "1 - Lethal Dreadlifts",
-        "2 - Break",
-
-      ]
+				"1 - Push ups with rotation",
+				"5 - Lethal Dreadlifts"],
     }
   }
 ], function(err, records) {
@@ -1003,6 +1057,6 @@ document.getElementById("workouts").focus();
 }
 
 	function nightDay(){
-		//here goes save to base code - coming soon
+
 		alert('Coming Soon 🤸')
 	}
